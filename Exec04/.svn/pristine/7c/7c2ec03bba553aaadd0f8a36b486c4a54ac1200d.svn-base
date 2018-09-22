@@ -1,0 +1,113 @@
+#include <AsyncLogger.hpp>
+
+#if 1
+
+using namespace asynclogger;
+using namespace std::chrono;
+
+asynclogger::AsyncLoggerMessage::AsyncLoggerMessage(const char* _msg) {
+	np = system_clock::now();
+	int len;
+	msg = new char[len = strlen(_msg)];
+	memcpy(msg, _msg, len);
+}
+
+asynclogger::AsyncLoggerMessage::~AsyncLoggerMessage() {
+	delete[] msg;
+}
+
+const TimePoint asynclogger::AsyncLoggerMessage::getTimePoint() {
+	return np;
+}
+
+asynclogger::AsyncLogger::AsyncLogger() {
+	isStart = true;
+	isPause = true; // start with pause
+	sleepInterValMills = 3000ms;
+	ts = new char[24];
+	logger = new std::thread(subTask);
+}
+
+asynclogger::AsyncLogger::~AsyncLogger() {
+	stop();
+	delete[] ts;
+}
+
+void asynclogger::AsyncLogger::push(std::string& str) {
+	AsyncLoggerMessage* msg = new AsyncLoggerMessage(str.c_str());
+	mtx.lock();
+	que.push(msg);
+	mtx.unlock();
+	cv.notify_all();
+}
+
+void asynclogger::AsyncLogger::handleLog(const AsyncLoggerMessage* msg)  {
+	getTS(msg->getTimePoint());
+	std::cout << ts << " : " << msg->getMsg() << std::endl;
+}
+
+void asynclogger::AsyncLogger::getTS(const TimePoint np) {
+	time_t ct = system_clock::to_time_t(np);
+	std::strftime(ts, 25, "%Y-%m-%d %H:%M:%S", localtime(&ct));
+	system_clock::duration since_epoch = np.time_since_epoch();
+	seconds s = duration_cast<seconds>(since_epoch);
+	since_epoch -= s;
+	milliseconds milli = duration_cast<milliseconds>(since_epoch);
+	sprintf(ts, "%s.%3lld", ts, milli.count());
+}
+
+void AsyncLogger::AsyncLogger::subTask() {
+	std::unique_lock<std::mutex> lck(mtx);
+
+	while(isStart) {
+		if(isPause) {
+			cv.wait_for(lck, sleepInterValMills);
+			continue;
+		}
+
+		if(que.size()>0) {
+			while (AsyncLoggerMessage* msg = que.top()) {
+				if(isPause) break;
+				handleLog(msg);
+				mtx.lock();
+				que.pop();
+				mtx.unlock();
+				delete msg;
+			}
+		}
+		else {
+			cv.wait_for(lck, sleepInterValMills);
+		}
+	}
+}
+
+void AsyncLogger::AsyncLogger::start() {
+	if(!isStart) isStart = true;
+	if(isPause) isPause = false;
+	if(!logger)
+		logger = new std::thread(subTask);
+
+}
+
+void AsyncLogger::AsyncLogger::stop() {
+	if(isStart) isStart = false;
+	cv.notify_all();
+	if(logger)
+		(*logger).join();
+	delete logger;
+}
+
+void AsyncLogger::AsyncLogger::resume() {
+	start();
+	cv.notify_all();
+}
+
+void AsyncLogger::AsyncLogger::pause() {
+	if(!isStart) isStart = true;
+	if(!isPause) isPause = true;
+	if(!logger)
+		logger = new std::thread(subTask);
+}
+
+
+#endif

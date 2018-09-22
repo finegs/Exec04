@@ -1,0 +1,207 @@
+#include <AsyncLogger.hpp>
+
+#if 1
+
+using namespace asynclogger;
+using namespace std::chrono;
+using namespace std::this_thread;
+
+asynclogger::AsyncLogMsg::AsyncLogMsg(const char* _msg) {
+	np = system_clock::now();
+	int len;
+	msg = new char[len = strlen(_msg)];
+	memcpy(msg, _msg, len);
+}
+
+asynclogger::AsyncLogMsg::~AsyncLogMsg() {
+	delete[] msg;
+}
+
+asynclogger::AsyncLogger::AsyncLogger() {
+	isStart = true;
+	isPause = true; // start with pause
+	sleepInterValMills = 3000ms;
+	ts = new char[24];
+	logger = NULL;
+}
+
+asynclogger::AsyncLogger::~AsyncLogger() {
+	stop();
+	delete[] ts;
+}
+
+void asynclogger::AsyncLogger::push(const std::string& str) {
+	AsyncLogMsg* msg = new AsyncLogMsg(str.c_str());
+	mtx.lock();
+	msgQueue.push(msg);
+	mtx.unlock();
+	cv.notify_all();
+}
+
+void asynclogger::AsyncLogger::handleLog(const AsyncLogMsg* msg)  {
+	if(!msg) return;
+	getTS(msg->getTimePoint());
+	std::cout << getTS() << " : " << MSG_INF << msg->getMsg() << std::endl;
+}
+
+const char* asynclogger::AsyncLogger::getTS() {
+	TimePoint tnp = system_clock::now();
+	getTS(tnp);
+	return ts;
+}
+
+void asynclogger::AsyncLogger::getTS(const TimePoint& np) {
+	time_t ct = system_clock::to_time_t(np);
+	std::strftime(ts, 25, "%Y-%m-%d %H:%M:%S", localtime(&ct));
+	system_clock::duration since_epoch = np.time_since_epoch();
+	seconds s = duration_cast<seconds>(since_epoch);
+	since_epoch -= s;
+	milliseconds milli = duration_cast<milliseconds>(since_epoch);
+	sprintf(ts, "%s.%3lld", ts, milli.count());
+}
+
+void asynclogger::AsyncLogger::logDebug(const char* msg) {
+	std::cout << getTS() << " : " << MSG_DBG << msg << std::endl;
+}
+
+void AsyncLogger::AsyncLogger::subTask() {
+
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger subTask - " << std::this_thread::get_id() << std::endl;
+
+	while(isStart) {
+		std::unique_lock<std::mutex> lck(mtx);
+		if(isPause) {
+			cv.wait_for(lck, sleepInterValMills);
+			continue;
+		}
+
+		if(!msgQueue.empty()) {
+			while (!isPause) {
+				AsyncLogMsg* msg = msgQueue.front();
+				handleLog(msg);
+				lck.lock();
+				msgQueue.pop();
+				lck.unlock();
+				delete msg;
+			}
+		}
+		else {
+			cv.wait_for(lck, sleepInterValMills);
+		}
+	}
+}
+
+void AsyncLogger::AsyncLogger::start() {
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger start initiated - " << std::this_thread::get_id() << std::endl;
+	if(!isStart) isStart = true;
+	if(isPause) isPause = false;
+	if(!logger)
+		logger = new std::thread(AsyncLogger::subTask, this);
+
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger start completed - " << std::this_thread::get_id() << std::endl;
+
+}
+
+void AsyncLogger::AsyncLogger::stop() {
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger stop initiated - " << std::this_thread::get_id() << std::endl;
+	if(isStart) isStart = false;
+	cv.notify_all();
+	if(logger)
+		(*logger).join();
+	delete logger;
+
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger stop completed - " << std::this_thread::get_id() << std::endl;
+}
+
+void AsyncLogger::AsyncLogger::resume() {
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger resume initiated - " << std::this_thread::get_id() << std::endl;
+	start();
+	cv.notify_all();
+
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger resume completed - " << std::this_thread::get_id() << std::endl;
+}
+
+void AsyncLogger::AsyncLogger::pause() {
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger pause initiated - " << std::this_thread::get_id() << std::endl;
+	if(!isStart) isStart = true;
+	if(!isPause) isPause = true;
+	if(!logger)
+		logger = new std::thread(AsyncLogger::subTask, this);
+
+	std::cout << getTS() << " : " << MSG_INF << "AsyncLogger pause completed - " << std::this_thread::get_id() << std::endl;
+}
+
+
+#endif
+
+
+#if 0
+class lazyWorkerIdleTerminate {
+    typedef enum state {
+        STARTED,
+        STOPPING,
+        STOPPED
+    } state_t;
+
+    std::queue<std::string> queue;
+    std::mutex              mutex;
+    std::thread             thread;
+    std::condition_variable condition;
+    std::atomic<state_t>    state = ATOMIC_VAR_INIT(STOPPED);
+
+    void process() {
+        std::unique_lock<std::mutex> lock(mutex, std::defer_lock);
+
+        while (true) {
+            lock.lock();
+            while (queue.empty()) {
+                if (condition.wait_for(lock, std::chrono::seconds(30)) == std::cv_status::timeout || state == STOPPING) {
+                    state = STOPPED;
+                    return;
+                }
+            }
+            std::string work = queue.front();
+            queue.pop();
+            lock.unlock();
+
+            // Some processing here...
+        }
+    }
+
+public:
+    static lazyWorkerIdleTerminate& instance() {
+        static lazyWorkerIdleTerminate instance;
+        return instance;
+    }
+
+    void doWork(std::string work) {
+        {
+            std::lock_guard<std::mutex> lock(mutex);
+            queue.push(work);
+            if (state == STOPPED) {
+                state = STARTED;
+                if (thread.joinable()) thread.detach();
+                thread = std::thread(&lazyWorkerIdleTerminate::process, this);
+                return;
+            }
+        }
+        condition.notify_one();
+    }
+
+    void stop() {
+        {
+            std::lock_guard<std::mutex> lock(mutex);
+            if (state != STARTED) return;
+            state = STOPPING;
+        }
+        condition.notify_one();
+        thread.join();
+    }
+
+    lazyWorkerIdleTerminate() {}
+
+    ~lazyWorkerIdleTerminate() {
+        stop();
+    }
+};
+#endif

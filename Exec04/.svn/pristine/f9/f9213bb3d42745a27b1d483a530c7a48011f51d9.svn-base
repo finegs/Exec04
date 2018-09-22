@@ -1,0 +1,90 @@
+/*
+ * AsyncLogger.hpp
+ *
+ *  Created on: 2017. 12. 8.
+ *      Author: finegs
+ */
+
+#ifndef ASYNCLOGGER_HPP_
+#define ASYNCLOGGER_HPP_
+
+#include <iostream>
+#include <string>
+#include <sstream>
+#include <cstdio>
+#include <vector>
+#include <sys/time.h>
+#include <time.h>
+#include <thread>
+#include <mutex>
+//#include <bits/std_mutex.h>
+#include <unistd.h>
+#include <chrono>
+#include <mutex>
+#include <string>
+#include <condition_variable>
+
+#include <queue>
+
+namespace asynclogger {
+
+using Clock = std::chrono::high_resolution_clock;
+using TimePoint = std::chrono::time_point<Clock>;
+
+static std::string MSG_INF("[I]");
+static std::string MSG_DBG("[D]");
+static std::string MSG_ERR("[E]");
+static std::string MSG_FTL("[F]");
+
+class AsyncLogMsg {
+public:
+	AsyncLogMsg(const char* msg);
+	~AsyncLogMsg();
+	char* getMsg() const {
+		return msg;
+	}
+	TimePoint getTimePoint() const {
+		return np;
+	}
+
+private:
+	TimePoint np;
+	char* msg;
+
+};
+
+
+class AsyncLogger {
+public:
+	AsyncLogger();
+	~AsyncLogger();
+
+	void push(const std::string& str);
+	const char* getTS();
+	void getTS(const TimePoint& tp);
+
+	void start();
+	void pause();
+	void resume();
+	void stop();
+	void logDebug(const char* msg);
+
+private:
+
+//	std::priority_queue<asynclogger::AsyncLoggerMessage*> que;
+	std::queue<asynclogger::AsyncLogMsg*> msgQueue;
+	std::mutex mtx;
+	std::condition_variable cv;
+	std::chrono::milliseconds sleepInterValMills;
+	bool isStart;
+	bool isPause;
+	std::thread* logger;
+	char* ts;
+
+	void subTask();
+	void handleLog(const asynclogger::AsyncLogMsg* msg);
+};
+
+}
+
+#endif /* ASYNCLOGGER_HPP_ */
