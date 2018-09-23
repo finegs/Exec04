@@ -263,6 +263,8 @@ class lazyWorkerIdleTerminate {
             lock.unlock();
 
             // Some processing here...
+	    
+	    std::cout << "[" << std::this_thread::get_Id() << "] : " << work << std::endl;
         }
     }
 
