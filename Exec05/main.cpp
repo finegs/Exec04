@@ -78,7 +78,7 @@ void print_id (int id) {
   std::unique_lock<std::mutex> lck(mtx);
   while (!ready) mainCmdCV.wait(lck);
   // ...
-  std::cout << "thread " << id << '\n';
+  std::cout << "thread [" << std::this_thread::get_id() << "] id = " << id << '\n';
 }
 
 void go() {
