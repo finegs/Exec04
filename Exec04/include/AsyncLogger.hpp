@@ -32,6 +32,13 @@
 #include <queue>
 #include <exception>
 
+#ifdef BUILDING_DLL
+#define ALOGGER_DLL __declspec(dllexport)
+#else
+#define ALOGGER_DLL __declspec(dllimport)
+#endif
+
+
 namespace asynclogger {
 
 using Clock = std::chrono::high_resolution_clock;
@@ -49,7 +56,7 @@ enum AsyncLogLevel {
 #define AsyncLogLevel_To_Str(Enum) std::string(#Enum).c_str()
 
 template<typename ... Args>
-std::string sformat(const std::string& format, Args ... args);
+std::string ALOGGER_DLL sformat(const std::string& format, Args ... args);
 
 class AsyncLogMsg {
 public:

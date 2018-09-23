@@ -328,8 +328,12 @@ int main() {
 	// by SGK 2017. 12. 17. start Logger Writer
 	logger.start();
 
+	cout << "Enter string : "; cout.flush();
 	// by SGK 2017. 12. 17. read string
 	getline(cin, s);
+
+	cout << "Enter pattern : "; cout.flush();
+
 	// by SGK 2017. 12. 17. read pattern
 	getline(cin, p);
 

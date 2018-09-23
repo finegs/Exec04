@@ -4,13 +4,14 @@
 <listAttribute key="org.eclipse.cdt.dsf.gdb.AUTO_SOLIB_LIST"/>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_NAME" value="gdb"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.DEBUG_ON_FORK" value="false"/>
-<booleanAttribute key="org.eclipse.cdt.dsf.gdb.EXTERNAL_CONSOLE" value="false"/>
+<booleanAttribute key="org.eclipse.cdt.dsf.gdb.EXTERNAL_CONSOLE" value="true"/>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.GDB_INIT" value=".gdbinit"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.NON_STOP" value="false"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.REVERSE" value="false"/>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.REVERSE_MODE" value="UseSoftTrace"/>
 <listAttribute key="org.eclipse.cdt.dsf.gdb.SOLIB_PATH">
 <listEntry value="C:\eclipse\eclipse-workspace_\exec04\lib"/>
+<listEntry value="G:\Dev\git\repository\Exec04\Exec04\Example_dll"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.cdt.dsf.gdb.TRACEPOINT_MODE" value="TP_FAST_THEN_NORMAL"/>
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
@@ -21,17 +22,21 @@
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
 <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug\Exec04.exe"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Example_Main/Example_Main.exe"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="Exec04"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.618230504"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/Exec04"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
 </listAttribute>
+<booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="false"/>
 <booleanAttribute key="org.eclipse.debug.core.capture_output" value="false"/>
+<mapAttribute key="org.eclipse.debug.core.environmentVariables">
+<mapEntry key="Path" value="${workspace_loc:Exec04}\Example_dll;C:/Java/jdk1.8.0_151/bin/../jre/bin/server;C:/Java/jdk1.8.0_151/bin/../jre/bin;C:/Java/jdk1.8.0_151/bin/../jre/lib/amd64;C:\MinGW-w64\mingw64\bin;C:\MinGW-w64\mingw64\msys64\bin;C:\MinGW-w64\mingw64\x86_64-w64-mingw32\bin;C:\MinGW-w64\mingw64\msys64\usr\bin;C:\tibco\tibrv\8.4\bin;C:\Programs\Vim\vim81;C:\Program Files\Common Files\Siemens\Automation\Simatic OAM\bin;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Programs\bin;C:\Siemens\Automation\WinCC_OA\3.15\bin\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd;C:\Users\fineg\AppData\Local\Microsoft\WindowsApps;;C:\eclipse\jee-oxygen\eclipse;"/>
+</mapAttribute>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_CONSOLE_OUTPUT_ON" value="false"/>
 <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
