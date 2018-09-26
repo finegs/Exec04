@@ -56,23 +56,20 @@ enum AsyncLogLevel {
 #define AsyncLogLevel_To_Str(Enum) std::string(#Enum).c_str()
 
 template<typename ... Args>
-std::string ALOGGER_DLL sformat(const std::string& format, Args ... args);
+std::string& ALOGGER_DLL sformat(const std::string& format, Args ... args);
+
+void ALOGGER_DLL mformat(const char* format);
+
+template<typename T, typename... Targs>
+void ALOGGER_DLL mprintf(const char* format, T value, Targs... Fargs);
 
 class AsyncLogMsg {
 public:
-	AsyncLogMsg(const char* msg);
-	AsyncLogMsg(const AsyncLogLevel& level, const char* msg);
+	AsyncLogMsg( const char* _msg, const AsyncLogLevel& level = AsyncLogLevel::L_INFO);
 	~AsyncLogMsg();
-	char* getMsg() const {
-		return msg;
-	}
-	TimePoint getTimePoint() const {
-		return createTimePoint;
-	}
-
-	AsyncLogLevel getLevel() const {
-		return level;
-	}
+	char* getMsg() const { return msg; }
+	TimePoint getTimePoint() const { return createTimePoint; }
+	AsyncLogLevel getLevel() const { return level; }
 
 private:
 	TimePoint createTimePoint;
