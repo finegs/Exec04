@@ -9,27 +9,37 @@ using namespace std::this_thread;
 using namespace asynclogger;
 
 template<typename ... Args>
-std::string ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
+std::string& ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
 	size_t size = snprintf(nullptr, 0, format, args ...);
 	unique_ptr<char[]> buf(new char[size]);
 	snprintf(buf.get(), size, format, args ...);
 	return std::string(buf.get(), buf.get()+size-1);
 }
 
+void ALOGGER_DLL asynclogger::mformat(const char* format) {
+	std::cout << format;
+}
+
+template<typename T, typename... Targs>
+void ALOGGER_DLL asynclogger::mprintf(const char* format, T value, Targs... Fargs) {
+	for(;*format!= '\0';format++) {
+		if(*format=='%') {
+			std::cout << value;
+			mprintf(format+1, Fargs...);
+			return;
+		}
+		std::cout << *format;
+	}
+}
+
 namespace asynclogger {
 
 
-AsyncLogMsg::AsyncLogMsg(const char* _msg) {
-	createTimePoint = system_clock::now();
-	int len;
-	msg = new char[len = strlen(_msg) + 1];
-	memcpy(msg, _msg, len+1);
-	level = L_INFO;
-}
 
-AsyncLogMsg::AsyncLogMsg(const AsyncLogLevel& level, const char* _msg) {
-	createTimePoint = system_clock::now();
+AsyncLogMsg::AsyncLogMsg( const char* _msg, const AsyncLogLevel& level) {
 	int len;
+
+	createTimePoint = system_clock::now();
 	msg = new char[len = strlen(_msg)];
 	memcpy(msg, _msg, len);
 	this->level = level;
@@ -94,7 +104,7 @@ void AsyncLogger::AsyncLogger::pause() {
 void AsyncLogger::log(const AsyncLogLevel& level, const std::string& str) {
 	std::stringstream ss = std::stringstream();
 	ss << " tid="<< std::this_thread::get_id() << ", msg=" << str;
-	AsyncLogMsg* msg = new AsyncLogMsg(level, ss.str().c_str());
+	AsyncLogMsg* msg = new AsyncLogMsg(ss.str().c_str(), level);
 	std::unique_lock<std::mutex> lck(mtx);
 	msgQueue.push(msg);
 	lck.unlock();
