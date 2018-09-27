@@ -19,22 +19,28 @@ int main(int argc, char* argv[]) {
 	vec1.insert(vec1.end(), vec2.begin(), vec2.end());
 
 	for(auto v:vec1) std::cout << v << " ";
+	std::cout << std::endl;
 
 	std::inplace_merge(vec1.begin(), vec1.end()-vec2.size(), vec1.end());
 	for(auto v:vec1) std::cout << v << " ";
+	std::cout << std::endl;
 
 	vec2.push_back(10);
 	for(auto v:vec) std::cout << v << " ";
+	std::cout << std::endl;
 	for (auto v:vec2) std::cout << v << " ";
+	std::cout << std::endl;
 
 	std::vector<int> res;
 	std::set_symmetric_difference(vec.begin(), vec.end(), vec2.begin(), vec2.end(), std::back_inserter(res));
 
 	for(auto v:res) std::cout << v << " ";
+	std::cout << std::endl;
 	res = {};
 	std::set_union(vec.begin(), vec.end(), vec2.begin(), vec2.end(), std::back_inserter(res));
 
 	for(auto v:res) std::cout << v << " ";
+	std::cout << std::endl;
 
 	return EXIT_SUCCESS;
 
