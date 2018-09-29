@@ -140,7 +140,7 @@ environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303/PAT
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303/PATH/value=${workspace\:Exec04}\\alogger;${MINGW_HOME}\\bin;${MSYS_HOME}\\bin;${MSYS_HOME}\\usr\\bin;C\:\\MinGW-w64\\mingw64\\bin;C\:\\MinGW-w64\\mingw64\\msys64\\usr\\bin
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303/append=true
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303/appendContributed=true
-indexer/indexAllFiles=false
+indexer/indexAllFiles=true
 indexer/indexAllHeaderVersions=true
 indexer/indexAllVersionsSpecificHeaders=
 indexer/indexOnOpen=false

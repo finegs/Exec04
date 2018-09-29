@@ -81,14 +81,18 @@ int main(int argc, char* argv[]) {
 	std::cout << x << std::endl;
 #endif
 
-	ip::tcp::iostream s("ai.eecs.umich.edu", "http");
-	s << "GET /people/dreeves/Fox-In-Socks.txt HTTP/1.0\r\n"
-			<< "Host: ai.eecs.umich.edu\r\n"
+//	ip::tcp::iostream s("ai.eecs.umich.edu", "http");
+//	s << "GET /people/dreeves/Fox-In-Socks.txt HTTP/1.0\r\n"
+//			<< "Host: ai.eecs.umich.edu\r\n"
+//			<< "Accept: */*\r\n"
+//			<< "Connection: close\r\n\r\n";
+
+	ip::tcp::iostream s("stackoverflow.com", "http");
+	s << "GET /questions/38767653/how-to-fix-undefined-reference-to-imp-wsacleanup-boost-asio-in-clion HTTP/1.0\r\n"
+			<< "Host: stackoverflow.com\r\n"
 			<< "Accept: */*\r\n"
 			<< "Connection: close\r\n\r\n";
 	std::cout << s.rdbuf();
-
-
 	return EXIT_SUCCESS;
 }
 
