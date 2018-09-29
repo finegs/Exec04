@@ -93,6 +93,7 @@ int main(int argc, char* argv[]) {
 			<< "Accept: */*\r\n"
 			<< "Connection: close\r\n\r\n";
 	std::cout << s.rdbuf();
+
 	return EXIT_SUCCESS;
 }
 
