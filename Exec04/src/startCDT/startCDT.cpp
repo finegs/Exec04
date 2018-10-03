@@ -101,11 +101,11 @@ int main(int argc, char* argv[])
 
 //    e = executeSystemCommand("C:\\");
 //    e = executeSystemCommand("cd C:\\eclipse\\jee-oxygen\\eclipse");
-    e = executeSystemCommand("pwd");
+//    e = executeSystemCommand("pwd");
 
     std::string ss = "start "
-    		"\/D " "C:\\eclipse\\jee-oxygen\\eclipse"
-			"\/B "
+    		"/D " "C:\\eclipse\\jee-oxygen\\eclipse"
+			"/B "
 			"eclipse";
     e = executeSystemCommand(ss.c_str());
 
