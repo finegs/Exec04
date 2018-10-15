@@ -42,7 +42,7 @@ HANDLE CreateChildProcess(LPTSTR szCmdline)
 
    if (bFuncRetn == 0)
    {
-      printf("CreateProcess failed (%)\n", GetLastError());
+      printf("CreateProcess failed (%ld)\n", GetLastError());
       return INVALID_HANDLE_VALUE;
    }
    else
