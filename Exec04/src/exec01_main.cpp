@@ -608,6 +608,9 @@ int main(int argc, char* argv[]) {
 		if (str1 == "exit" || str1 == "quit") { // option to quit the loop
 			break;
 		}
+		else if (str1 == "-1") { // option to quit the loop
+			break;
+		}
 		else {
 			b.addElement(str1);
 			cout << endl;
