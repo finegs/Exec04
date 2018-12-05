@@ -8,7 +8,8 @@
 #define _MY_DEF_07 0
 #define _MY_DEF_08 0
 #define _MY_DEF_09 0
-#define _MY_DEF_10 1
+#define _MY_DEF_10 0
+#define _MY_DEF_11 1
 
 #if _MY_DEF_01
 
@@ -627,5 +628,168 @@ int main(int argc, char* argv[]) {
 	system("pause");
 	return 0;
 }
+
+#endif
+
+#if _MY_DEF_11
+
+#include <iostream>
+
+template<typename T>
+class List;
+
+template <class TNode>
+class Iterator
+{
+	friend class List<typename TNode::value_type>;
+	TNode* pNode;
+
+	Iterator(TNode* _pNode) : pNode(_pNode) {}
+public:
+	void operator++() { pNode = pNode->_next; }
+	void operator++(int) { pNode = pNode->_next; }
+	bool operator!=(Iterator<TNode> rval) { return !(pNode == rval.pNode); }
+	bool operator==(Iterator<TNode> rval) { return (pNode == rval.pNode); }
+	typename TNode::value_type operator*() { return pNode->_data; }
+	Iterator<TNode> operator+(int _i) {
+		Iterator<TNode> iter = *this;
+		for(int i = 0;i < _i;++i) {
+			if(iter.pNode) ++iter;
+			else break;
+		}
+		return iter;
+	}
+
+};
+
+template <typename T>
+class Node {
+	friend class List<T>;
+	friend class Iterator<Node<T>>;
+	Node() : _next(0) {}
+	Node(T data) : _data(data), _next(0) {}
+	Node(T data, Node<T>* next) : _data(data), _next(next) {}
+	Node(Node<T>* next) : _next(next) {}
+
+	T _data;
+	Node<T>* _next;
+public:
+	typedef T value_type;
+};
+
+template <typename T>
+class List
+{
+	Node<T>* first;
+public:
+	typedef Iterator<Node<T>> iterator;
+	typedef T				  value_type;
+
+	List() : first(0) {}
+	~List()
+	{
+		if(first) {
+			Node<T> *iter = first;
+			while(iter != 0) {
+				Node<T>* tmp = iter;
+				iter = iter->_next;
+				delete tmp;
+			}
+		}
+	}
+
+	void push_back(T data) {
+		if(first) {
+			Node<T> *iter = first;
+			for(;iter->_next != 0;iter=iter->_next);
+			iter->_next=new Node<T>(data);
+		}
+		else
+			first =new Node<T>(data);
+	}
+
+	void push_front(T data) {
+		if(first) {
+			Node<T>* tmp = new Node<T>(data);
+			tmp -> _next = first;
+			first = tmp;
+		}
+		else {
+			first = new Node<T>(data);
+		}
+	}
+
+	iterator begin(){ return iterator(first); }
+	iterator end(){ return iterator(0); }
+
+	bool erase(iterator& _iNode) //True for success, vice versa
+	{
+		/* This is rather inneffecient. Maybe a better way to do this? */
+		/* Even then, it's *still* more effecient than a contiguous container */
+		if (_iNode.pNode == first)
+		{
+			first = first->_next;
+			delete _iNode.pNode;
+			return true;
+		}
+		else
+		{
+			for (Node<T>* iter = first; iter->_next; iter = iter->_next)
+			{
+				if (iter->_next == _iNode.pNode) //Find our node.
+				{
+					iter->_next = _iNode.pNode->_next;
+					delete _iNode.pNode;
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+};
+
+
+int main(void)
+{
+	List<int> list;
+	list.push_back(3);
+	list.push_back(4);
+	list.push_front(2);
+	list.push_front(1);
+
+	/*Print all elements*/
+	for (List<int>::iterator iter = list.begin();
+	     iter != list.end(); ++iter)
+	{
+		std::cout << (*iter) << std::endl;
+	}
+
+	/*Delete second element and reprint*/
+	List<int>::iterator tmp = list.begin() + 1;
+	list.erase(tmp);
+
+	for (List<int>::iterator iter = list.begin();
+	     iter != list.end(); ++iter)
+	{
+		std::cout << (*iter) << std::endl;
+	}
+
+	/*Now delete first node and print again*/
+	tmp = list.begin();
+	list.erase(tmp);
+
+	for (List<int>::iterator iter = list.begin();
+	     iter != list.end(); ++iter)
+	{
+		std::cout << (*iter) << std::endl;
+	}
+
+	std::cin.ignore();
+	//List object takes care of deletion for us.
+	return 0;
+}
+
+
 
 #endif
