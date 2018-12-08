@@ -9,6 +9,12 @@
 #include <cstdlib>
 #include <winsock2.h>
 #include <windows.h>
+#include <map>
+#include <unordered_map>
+
+using namespace std;
+
+unordered_map<string, string> envMap;
 
 //Prototypes
 int startWinsock(void);
@@ -27,7 +33,7 @@ int main()
   rc=startWinsock();
   if(rc!=0)
   {
-    printf("Error: startWinsock, error code: %d\n",rc);
+    printf("Error: startWinsock, error code: %ld\n",rc);
     return 1;
   }
   else
@@ -88,7 +94,7 @@ int main()
     }
     else
     {
-      printf("%d Bytes send!\n", rc);
+      printf("%ld Bytes send!\n", rc);
     }
   }
   return 0;
@@ -97,7 +103,7 @@ int main()
 int startWinsock(void)
 {
   WSADATA wsa;
-  return WSAStartup(MAKEWORD(2,0),&wsa);
+  return WSAStartup(MAKEWORD(2,2),&wsa);
 }
 
 
