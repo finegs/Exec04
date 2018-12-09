@@ -37,8 +37,8 @@ void write_packet_to_symbo_file(string path, Packet p) {
 			string full_path = path + m.symbol.name + ".CAP";
 //			ofstream& of = outs[m.symbol.name];
 //			create new ofstream with full_path
-			ofstream of(full_path, std::ofstream::out);
-			of.open(full_path, ios_base::app);
+			ofstream of(full_path, ios_base::out|ios_base::app);
+//			of.open(full_path, ios_base::app);
 			of << p.get_header();
 			outs.emplace(m.symbol.name, of);
 		}
