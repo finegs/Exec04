@@ -19,7 +19,7 @@ using std::thread;
 
 bool WorkerThread::createThread()
 {
-	if(!m_thread) return true;
+	if(m_thread) return true;
 	m_thread = new std::thread(&WorkerThread::process, this);
 	return true;
 }
@@ -75,7 +75,7 @@ void WorkerThread::process()
 
 			delete msg;
 			std::unique_lock<std::mutex> lk(m_mutex);
-			int cnt;
+			int cnt = 0;
 			while(!m_queue.empty())
 			{
 				msg = m_queue.front();
