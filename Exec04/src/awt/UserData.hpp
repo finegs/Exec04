@@ -22,7 +22,7 @@ public:
 	UserData(std::string msg)
 		: tp(system_clock::now()),
 			msg(std::move(msg)) {}
-	std::string getTimeStamp() const
+	std::string& getTimeStamp() const
 	{
 		using namespace std;
 		using namespace std::chrono;
@@ -38,7 +38,7 @@ public:
 
 		strftime(timeStr, strlen(timeStr), dtFormat, ttm);
 
-		std::string rs(timeStr);
+		static std::string rs(timeStr);
 		rs.append(".");
 		rs.append(std::to_string(ms.count()));
 		return rs;

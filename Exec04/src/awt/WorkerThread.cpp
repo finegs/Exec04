@@ -7,8 +7,8 @@
 #include <cassert>
 #include <iostream>
 #include <string>
-#include "WorkerThread.hpp"
 #include <thread>
+#include "WorkerThread.hpp"
 
 using std::thread;
 
@@ -50,7 +50,7 @@ void WorkerThread::process()
 			assert(msg->msg != NULL);
 
 			const UserData* userData = static_cast<const UserData*>(msg->msg);
-			std::cout << userData->getTimeStamp() << " " << userData->msg.c_str() << " on " << threadName << std::endl;
+			std::cout << userData->getTimeStamp() << " " << userData->msg << " on " << threadName << std::endl;
 
 			delete userData;
 			delete msg;
