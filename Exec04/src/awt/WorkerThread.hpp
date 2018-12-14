@@ -24,9 +24,7 @@ class WorkerThread
 public:
 	WorkerThread(const char* threadName) : m_thread(nullptr), threadName(threadName) {};
 
-	~WorkerThread() {
-		exitThread();
-	};
+	~WorkerThread();
 
 	bool createThread();
 
