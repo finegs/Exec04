@@ -24,7 +24,9 @@ class WorkerThread
 public:
 	WorkerThread(const char* threadName) : m_thread(nullptr), threadName(threadName) {};
 
-	~WorkerThread();
+	~WorkerThread() {
+		exitThread();
+	};
 
 	bool createThread();
 
@@ -34,6 +36,9 @@ public:
 	const char* getName() const { return threadName; }
 
 	static std::thread::id getCurrentThreadId();
+
+	std::queue<ThreadMsg*> getQueue() const { return m_queue; }
+	const std::thread& getTimerThread() const { return m_timerThread; }
 
 	void postMsg(const UserData* data);
 
