@@ -6,7 +6,7 @@
  */
 #include <iostream>
 #include <cstdlib>
-#include <InputParser.hpp>
+#include "InputParser.hpp"
 
 int main(int argc, char* argv[]) {
 
