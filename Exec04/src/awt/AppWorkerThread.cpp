@@ -12,28 +12,13 @@
 
 #include <assert.h>
 
+#include <AsyncLogger.hpp>
+#include <AppCLI.hpp>
+
 #include "WorkerThread.hpp"
 
 using namespace std;
 
-enum AppCLICmd {
-	cHelp,
-	cStatus,
-	cExit,
-	cPause,
-	cResume
-};
-
-
-AppCLICmd toAppCLICmd(const std::string& str)
-{
-	if(str == "-help") return cHelp;
-	else if(str == "-status") return cStatus;
-	else if(str == "-exit") return cExit;
-	else if(str == "-pause") return cPause;
-	else if(str == "-resume") return cResume;
-	else return cHelp;
-}
 
 int init(int argc, char* argv[]);
 const WorkerThread* getWorker(const std::string& workerName);
@@ -44,7 +29,15 @@ std::unordered_map<std::string, std::string> properties;
 int main(int argc, char* argv[])
 {
 	int workerCnt;
-	if(init(argc, argv)) {
+
+	// by SGK 2018. 12. 16. add AsyncLogger
+	if(!asynclogger::AsyncLogger::init(argc, argv)) {
+		std::cerr<< "illegal argument. Check all arguments" << std::endl;
+		return EXIT_FAILURE;
+	}
+
+	if(init(argc, argv))
+	{
 		std::cerr << " Illegal Arguments. Check arguments all !!!";
 		return EXIT_FAILURE;
 	}
@@ -52,14 +45,14 @@ int main(int argc, char* argv[])
 	bool isRun =- true;
 	std::string cmd;
 	while(isRun) {
-		std::cout << "cmd >> " << std::endl;
+		std::cin.clear();
+		std::cout << ">> cmd : "; std::cout.flush();
 		std::cin >> cmd;
 
-		AppCLICmd c = toAppCLICmd(cmd);
-
+		AppCLICmd::AppCLICmdType c = AppCLICmd::toAppCLICmd(cmd);
 		switch(c) {
 
-		case cStatus:
+		case AppCLICmd::AppCLICmdType::cStatus:
 		{
 			size_t workerCnt = workers.size();
 			std::cout << "Current Workers.size=" << workerCnt;
@@ -74,25 +67,85 @@ int main(int argc, char* argv[])
 		}
 			break;
 
-		case cExit:
+		case AppCLICmd::AppCLICmdType::cExit:
 		{
 			isRun = false;
 		}
 		break;
 
-		case cPause:
+		case AppCLICmd::AppCLICmdType::cPause:
 		{
 			std::cout << "Not yet implemented" << std::endl;
 		}
 		break;
 
-		case cResume:
+		case AppCLICmd::AppCLICmdType::cResume:
 		{
 			std::cout << "Not yet implemented" << std::endl;
 		}
 		break;
 
-		case cHelp:
+		case AppCLICmd::AppCLICmdType::cPauseTimer:
+		{
+			size_t workerCnt = workers.size();
+			for (size_t i = 0; i < workerCnt; ++i) {
+				std::string key = std::string(WORKER_PREFIX) + std::to_string(i);
+				WorkerThread* worker = workers[key.c_str()];
+				std::cout << "Worker=" << key << ", pauseTimer." << std::endl;
+				worker->pauseTimer();
+			}
+		}
+		break;
+
+		case AppCLICmd::AppCLICmdType::cResumeTimer:
+		{
+			size_t workerCnt = workers.size();
+			for (size_t i = 0; i < workerCnt; ++i) {
+				std::string key = std::string(WORKER_PREFIX) + std::to_string(i);
+				WorkerThread* worker = workers[key.c_str()];
+				std::cout << "Worker=" << key << ",  resumeTimer." << std::endl;
+				worker->resumeTimer();
+			}
+		}
+		break;
+
+		case AppCLICmd::AppCLICmdType::cResetTimeCycle:
+		{
+			int newTimerCycle;
+			std::cin >> newTimerCycle;
+			if(newTimerCycle < 0)
+			{
+				std::cout << "Illegal New TimerCycle. [" << newTimerCycle << "]" << std::endl;
+				break;
+			}
+
+			size_t workerCnt = workers.size();
+			for (size_t i = 0; i < workerCnt; ++i) {
+				std::string key = std::string(WORKER_PREFIX) + std::to_string(i);
+				WorkerThread* worker = workers[key.c_str()];
+				std::cout << "Worker=" << key << ",  resetTimerCycle. TimeCycle : [" << worker->getTimerCycle() << "] -> [" << newTimerCycle << "]" << std::endl;
+				worker->setTimerCycle(newTimerCycle);
+			}
+		}
+		break;
+
+		case AppCLICmd::AppCLICmdType::cStringTest:
+		{
+			std::string s;
+			std::cout << "Enter string to test : "; std::cout.flush();
+			std::cin >> s;
+
+			std::string s2(std::move(s));
+			if(s == s2) std::cout << "s and s2 is same" << std::endl;
+			else std::cout << "s and s2 is different" << std::endl;
+
+			if(s.c_str() == s2.c_str()) std::cout << "s.c_str() and s2.c_str() is same" << std::endl;
+			else std::cout << "s.c_str() and s2.c_str() is different" << std::endl;
+
+			break;
+		}
+
+		case AppCLICmd::AppCLICmdType::cHelp:
 		default:
 		{
 			std::cout << "Command : -help 			(This Message)" << std::endl;

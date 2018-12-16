@@ -87,7 +87,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -173,7 +173,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec03.cpp|exec04.cpp|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec03.cpp|exec04.cpp|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -281,10 +281,10 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
-						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
@@ -383,9 +383,8 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry excluding="example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="SQLiteEx_g/example|src" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -483,7 +482,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -592,7 +591,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="exec01_main.cpp|awt|cli|udp|test_main.cpp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|exec01_main.cpp|awt|cli|udp|test_main.cpp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -609,7 +608,7 @@
 			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
 		</cconfiguration>
 		<cconfiguration id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628">
-			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628" moduleId="org.eclipse.cdt.core.settings" name="exec01">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628" moduleId="org.eclipse.cdt.core.settings" name="AppExec01">
 				<externalSettings>
 					<externalSetting>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/exec04"/>
@@ -625,10 +624,10 @@
 				</extensions>
 			</storageModule>
 			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
-				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628" name="exec01" parent="cdt.managedbuild.config.gnu.mingw.exe.debug">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GCCErrorParser" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628" name="AppExec01" parent="cdt.managedbuild.config.gnu.mingw.exe.debug">
 					<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628." name="/" resourcePath="">
 						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.debug.141174521" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.debug">
-							<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.debug.1593206582" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.debug"/>
+							<targetPlatform binaryParser="org.eclipse.cdt.core.PE" id="cdt.managedbuild.target.gnu.platform.mingw.exe.debug.1593206582" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.debug"/>
 							<builder buildPath="${workspace_loc:/exec04}/Debug" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1993606741" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
 							<tool command="as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug.1686433350" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug">
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.50615738" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
@@ -645,8 +644,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
 								</option>
 								<option id="gnu.cpp.compiler.option.debugging.other.425214128" name="Other debugging flags" superClass="gnu.cpp.compiler.option.debugging.other" useByScannerDiscovery="false" value="" valueType="string"/>
-								<option id="gnu.cpp.compiler.option.debugging.gprof.1980515285" name="Generate gprof information (-pg)" superClass="gnu.cpp.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="gnu.cpp.compiler.option.debugging.prof.1023424775" name="Generate prof information (-p)" superClass="gnu.cpp.compiler.option.debugging.prof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.debugging.gprof.1980515285" name="Generate gprof information (-pg)" superClass="gnu.cpp.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.debugging.prof.1023424775" name="Generate prof information (-p)" superClass="gnu.cpp.compiler.option.debugging.prof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="gnu.cpp.compiler.option.debugging.codecov.1767187886" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.cpp.compiler.option.debugging.codecov" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="gnu.cpp.compiler.option.other.pic.1140773477" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option id="gnu.cpp.compiler.option.other.verbose.309320176" name="Verbose (-v)" superClass="gnu.cpp.compiler.option.other.verbose" useByScannerDiscovery="false" value="false" valueType="boolean"/>
@@ -674,8 +673,8 @@
 								<option defaultValue="true" id="gnu.c.link.option.shared.332651723" name="Shared (-shared)" superClass="gnu.c.link.option.shared" valueType="boolean"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug.2130372832" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug">
-								<option id="gnu.cpp.link.option.debugging.prof.890145541" name="Generate prof information (-p)" superClass="gnu.cpp.link.option.debugging.prof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="gnu.cpp.link.option.debugging.gprof.1469425586" name="Generate gprof information (-pg)" superClass="gnu.cpp.link.option.debugging.gprof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.debugging.prof.890145541" name="Generate prof information (-p)" superClass="gnu.cpp.link.option.debugging.prof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.debugging.gprof.1469425586" name="Generate gprof information (-pg)" superClass="gnu.cpp.link.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.debugging.codecov.1845641886" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.cpp.link.option.debugging.codecov" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.2022779704" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="pthread"/>
@@ -694,9 +693,9 @@
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="awt|SQLiteEx_g/example|example|src|**/*_main.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
+						<entry excluding="SQLiteEx_g/example|src|src/PacketDump|src/algo|src/alogger|src/awt|src/cli|src/sharedmem|src/sqlite|src/startCDT|src/table|src/udp|src/AppTest.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="exec01_main.cpp|awt|cli|udp|algo|startCDT/*.*|table|startCDT|sharedmem/*.*|PacketDump|alogger|sharedmem|sqlite|algo1|test_main.cpp|algo/*.*|sqlite/*.*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|exec01_main.cpp|awt|cli|udp|algo|startCDT/*.*|table|startCDT|sharedmem/*.*|PacketDump|alogger|sharedmem|sqlite|algo1|test_main.cpp|algo/*.*|sqlite/*.*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="**/*_main.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/algo"/>
 						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
@@ -901,7 +900,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp|main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -1636,7 +1635,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -1739,7 +1738,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
@@ -1845,7 +1844,7 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
@@ -1926,8 +1925,8 @@
 								<option defaultValue="true" id="gnu.c.link.option.shared.956313397" name="Shared (-shared)" superClass="gnu.c.link.option.shared" valueType="boolean"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug.2145314663" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug">
-								<option id="gnu.cpp.link.option.debugging.prof.1449513275" name="Generate prof information (-p)" superClass="gnu.cpp.link.option.debugging.prof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
-								<option id="gnu.cpp.link.option.debugging.gprof.858133270" name="Generate gprof information (-pg)" superClass="gnu.cpp.link.option.debugging.gprof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.debugging.prof.1449513275" name="Generate prof information (-p)" superClass="gnu.cpp.link.option.debugging.prof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.debugging.gprof.858133270" name="Generate gprof information (-pg)" superClass="gnu.cpp.link.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
 								<option id="gnu.cpp.link.option.debugging.codecov.1834967149" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.cpp.link.option.debugging.codecov" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.76829696" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="pthread"/>
@@ -1947,16 +1946,119 @@
 					<sourceEntries>
 						<entry excluding="awt|SQLiteEx_g/example|example|src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry excluding="example_dll.cpp|example.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="SQLiteEx_g/example"/>
-						<entry excluding="test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="AppExec01.cpp|AppTest.cpp|test_main.cpp|exec01_main.cpp|awt|cli|udp|algo|exec_sqlite.cpp|table|startCDT|PacketDump|alogger|sqlite|sharedmem|algo1|AsyncLogger.cpp|exec01.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 						<entry excluding="PacketDump.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/PacketDump"/>
 						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
-						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
-						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
+						<entry excluding="AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
 						<entry excluding="StoreTable_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/table"/>
+						<entry excluding="UDPServer.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/udp"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937" moduleId="org.eclipse.cdt.core.settings" name="AppTest">
+				<externalSettings>
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/exec04"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/exec04/Debug"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="exec04" srcPrefixMapping="" srcRootPath=""/>
+					</externalSetting>
+				</externalSettings>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" errorParsers="org.eclipse.cdt.core.GASErrorParser;org.eclipse.cdt.core.GLDErrorParser;org.eclipse.cdt.core.GCCErrorParser" id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937" name="AppTest" parent="cdt.managedbuild.config.gnu.mingw.exe.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.debug.968020046" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.debug">
+							<targetPlatform binaryParser="org.eclipse.cdt.core.PE" id="cdt.managedbuild.target.gnu.platform.mingw.exe.debug.399130708" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.debug"/>
+							<builder buildPath="${workspace_loc:/exec04}/Debug" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1426914413" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+							<tool command="as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug.94727941" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.debug">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1452860969" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.662744910" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.2119452177" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug">
+								<option id="gnu.cpp.compiler.mingw.exe.debug.option.optimization.level.1397328756" name="Optimization Level" superClass="gnu.cpp.compiler.mingw.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level.991006555" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.default" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.1461878841" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++1y" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.other.other.1666892141" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fno-builtin" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.944365702" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${BOOST_HOME}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.debugging.other.700697535" name="Other debugging flags" superClass="gnu.cpp.compiler.option.debugging.other" useByScannerDiscovery="false" value="" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.debugging.gprof.825535802" name="Generate gprof information (-pg)" superClass="gnu.cpp.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.debugging.prof.1298448422" name="Generate prof information (-p)" superClass="gnu.cpp.compiler.option.debugging.prof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.debugging.codecov.919117190" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.cpp.compiler.option.debugging.codecov" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.pic.1340454569" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.verbose.1008611904" name="Verbose (-v)" superClass="gnu.cpp.compiler.option.other.verbose" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1257169238" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1901782146" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.mingw.exe.debug.option.optimization.level.1236358674" name="Optimization Level" superClass="gnu.c.compiler.mingw.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.mingw.exe.debug.option.debugging.level.411892608" name="Debug Level" superClass="gnu.c.compiler.mingw.exe.debug.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.dialect.std.40940482" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c11" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.misc.other.866470260" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fno-builtin" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.443247131" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.debugging.other.1350641144" name="Other debugging flags" superClass="gnu.c.compiler.option.debugging.other" useByScannerDiscovery="false" value="" valueType="string"/>
+								<option id="gnu.c.compiler.option.debugging.prof.251615758" name="Generate prof information (-p)" superClass="gnu.c.compiler.option.debugging.prof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.debugging.gprof.1855765946" name="Generate gprof information (-pg)" superClass="gnu.c.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.debugging.codecov.2012632050" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.c.compiler.option.debugging.codecov" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.pic.1700660770" name="Position Independent Code (-fPIC)" superClass="gnu.c.compiler.option.misc.pic" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.verbose.2017268805" name="Verbose (-v)" superClass="gnu.c.compiler.option.misc.verbose" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.ansi.248711095" name="Support ANSI programs (-ansi)" superClass="gnu.c.compiler.option.misc.ansi" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1239710732" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug.880213330" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.debug">
+								<option defaultValue="true" id="gnu.c.link.option.shared.755738729" name="Shared (-shared)" superClass="gnu.c.link.option.shared" valueType="boolean"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug.1957912795" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.debug">
+								<option id="gnu.cpp.link.option.debugging.prof.478730437" name="Generate prof information (-p)" superClass="gnu.cpp.link.option.debugging.prof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.debugging.gprof.281657697" name="Generate gprof information (-pg)" superClass="gnu.cpp.link.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.debugging.codecov.63975251" name="Generate gcov information (-ftest-coverage -fprofile-arcs)" superClass="gnu.cpp.link.option.debugging.codecov" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1745529496" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="alogger"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.56896033" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/alogger}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${BOOST_HOME}\lib&quot;"/>
+								</option>
+								<option defaultValue="true" id="gnu.cpp.link.option.shared.623049360" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.623753256" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="src|src/PacketDump|src/algo|src/alogger|src/awt|src/cli|src/sharedmem|src/sqlite|src/startCDT|src/table|src/udp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
+						<entry excluding="AppExec01.cpp|awt|cli|udp|algo|startCDT/*.*|table|startCDT|sharedmem/*.*|PacketDump|alogger|sharedmem|sqlite|algo1|algo/*.*|sqlite/*.*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/PacketDump"/>
+						<entry excluding="**/*_main.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/algo"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
+						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
+						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
+						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
+						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
+						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
+						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/table"/>
 						<entry excluding="UDPServer.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/udp"/>
 					</sourceEntries>
 				</configuration>
@@ -1972,16 +2074,31 @@
 		<configuration configurationName="AppWorkerThread">
 			<resource resourceType="PROJECT" workspacePath="/Exec04"/>
 		</configuration>
+		<configuration configurationName="sqlite3"/>
+		<configuration configurationName="alogger"/>
+		<configuration configurationName="SQLiteEx_g"/>
+		<configuration configurationName="UDPServer"/>
+		<configuration configurationName="Example_Main"/>
+		<configuration configurationName="StoreTable"/>
+		<configuration configurationName="startCDT"/>
+		<configuration configurationName="StringTest"/>
+		<configuration configurationName="Example_dll"/>
+		<configuration configurationName="exec01"/>
+		<configuration configurationName="aloggerTest"/>
 		<configuration configurationName="Multiple configurations">
 			<resource resourceType="PROJECT" workspacePath="/exec04"/>
 		</configuration>
-		<configuration configurationName="alogger"/>
+		<configuration configurationName="AppInputParser"/>
+		<configuration configurationName="SQLiteEx"/>
+		<configuration configurationName="startCDTg"/>
+		<configuration configurationName="LoadSharedMem"/>
 		<configuration configurationName="Debug">
 			<resource resourceType="PROJECT" workspacePath="/exec04"/>
 		</configuration>
 		<configuration configurationName="Release">
 			<resource resourceType="PROJECT" workspacePath="/exec04"/>
 		</configuration>
+		<configuration configurationName="algo"/>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.internal.ui.text.commentOwnerProjectMappings"/>
 	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets">
@@ -2040,6 +2157,9 @@
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="org.eclipse.cdt.msvc.exe.debug.159590067;org.eclipse.cdt.msvc.exe.debug.159590067.;org.eclipse.cdt.msvc.cl.c.exe.debug.315452255;org.eclipse.cdt.msvc.cl.inputType.c.516536984">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId="org.eclipse.cdt.msw.build.clScannerInfo"/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937;cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937.;cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.debug.2119452177;cdt.managedbuild.tool.gnu.cpp.compiler.input.1257169238">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.1457706906;cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.1457706906.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1216665857;cdt.managedbuild.tool.gnu.c.compiler.input.277833015">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
@@ -2129,6 +2249,9 @@
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.460839648;cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.460839648.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1712823614;cdt.managedbuild.tool.gnu.c.compiler.input.278779203">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937;cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.990832937.;cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.debug.1901782146;cdt.managedbuild.tool.gnu.c.compiler.input.1239710732">
 			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
 		</scannerConfigBuildInfo>
 	</storageModule>

@@ -8,6 +8,7 @@ using namespace std::chrono;
 using namespace std::this_thread;
 using namespace asynclogger;
 
+
 template<typename ... Args>
 std::string& ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
 	size_t size = snprintf(nullptr, 0, format, args ...);
@@ -35,7 +36,6 @@ void ALOGGER_DLL asynclogger::mprintf(const char* format, T value, Targs... Farg
 namespace asynclogger {
 
 
-
 AsyncLogMsg::AsyncLogMsg( const char* _msg, const AsyncLogLevel& level) {
 	int len;
 
@@ -49,7 +49,43 @@ AsyncLogMsg::~AsyncLogMsg() {
 	delete[] msg;
 }
 
-AsyncLogger::AsyncLogger() : isStart(true), isPause(true), out(std::cout.rdbuf()) {
+AsyncLogger& AsyncLogger::getLogger(const std::string& loggerName)
+{
+	if(loggerName.size() < 1) return loggers[_ASYNC_ROOT_LOGGER];
+	AsyncLogger& logger = loggers[loggerName];
+	return logger;
+}
+bool AsyncLogger::registerLogger(const std::string& loggerName, AsyncLogger& logger)
+{
+	if(&loggers[loggerName]) return false;
+
+	loggers.insert(std::pair<std::string, AsyncLogger>(std::string(loggerName), logger));
+	return true;
+}
+
+AsyncLogger& AsyncLogger::unregisterLogger(const std::string& loggerName)
+{
+	AsyncLogger& logger = loggers[loggerName];
+	loggers.erase(loggerName);
+	return logger;
+}
+
+int AsyncLogger::init(int argc, char* argv[])
+{
+	AsyncLogger logger(_ASYNC_ROOT_LOGGER);
+
+	registerLogger(logger.getName(), logger);
+
+	logger.start();
+
+	return EXIT_SUCCESS;
+}
+
+AsyncLogger::AsyncLogger()
+	: isStart(true),
+	  isPause(true),
+	  out(nullptr)
+{
 	sleepInterValMills = milliseconds(3000);
 	ts = new char[25];
 	logWriter = NULL;
@@ -60,7 +96,6 @@ AsyncLogger::~AsyncLogger() {
 	stop();
 	delete[] ts;
 }
-
 
 void AsyncLogger::AsyncLogger::start() {
 	handleSyncLog(L_INFO, "AsyncLogger start initiated ");
@@ -152,18 +187,18 @@ void AsyncLogger::handleLog(const AsyncLogLevel& level, const char* msg, const T
 	if(level < this->getLevel()) return;
 	outMtx.lock();
 	getTS(np, ts);
-	out << ts << " : ";
+	(*out) << ts << " : ";
 	switch(level) {
 	case L_DEBUG:
-		out << MSG_DBG; break;
+		(*out) << MSG_DBG; break;
 	case L_INFO:
-		out << MSG_INF; break;
+		(*out) << MSG_INF; break;
 	case L_ERROR:
-		out << MSG_ERR; break;
+		(*out) << MSG_ERR; break;
 	case L_FATAL:
-		out << MSG_FATAL; break;
+		(*out) << MSG_FATAL; break;
 	}
-	out << " " << msg << std::endl;
+	(*out) << " " << msg << std::endl;
 	outMtx.unlock();
 }
 
