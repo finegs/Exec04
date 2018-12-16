@@ -93,7 +93,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -180,7 +180,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -289,7 +289,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -393,7 +393,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="*.cpp|*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -492,7 +492,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -602,7 +602,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="*.cpp|*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -707,7 +707,7 @@
 						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -807,7 +807,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -914,7 +914,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -1021,7 +1021,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -1119,7 +1119,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -1228,7 +1228,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="*.cpp|*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -1319,6 +1319,7 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.519081325" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
 									<listOptionValue builtIn="false" value="&quot;C:\Programs\boost\boost_1_67_0\lib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/sqlite3}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/alogger}&quot;"/>
 								</option>
 								<option defaultValue="true" id="gnu.cpp.link.option.shared.1313862637" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" useByScannerDiscovery="false" value="false" valueType="boolean"/>
@@ -1338,7 +1339,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="shell_Main.c|shellMain.c|shell.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -1439,7 +1440,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp|*.cpp, *.hpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="shell_Main.c|shell.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -1514,6 +1515,7 @@
 									<listOptionValue builtIn="false" value="SQLITE_LIKE_DOESNT_MATCH_BLOBS"/>
 									<listOptionValue builtIn="false" value="SQLITE_MAX_EXPR_DEPTH=0"/>
 								</option>
+								<option id="gnu.c.compiler.option.debugging.prof.1569777551" name="Generate prof information (-p)" superClass="gnu.c.compiler.option.debugging.prof" useByScannerDiscovery="false" value="false" valueType="boolean"/>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1227881025" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release.946693639" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release">
@@ -1553,7 +1555,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c|shell.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -1656,7 +1658,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -1760,7 +1762,7 @@
 						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -1867,7 +1869,7 @@
 						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|*.cpp,*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -1970,7 +1972,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="WriteSharedMem_main.cpp|LoadSharedMem.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="startCDT.cpp|startCDT_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/startCDT"/>
@@ -2074,7 +2076,7 @@
 						<entry flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/alogger"/>
 						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
 						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
 						<entry excluding="**/*.c*" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
@@ -2184,6 +2186,119 @@
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
 						<entry excluding="**/*.cpp|**/*.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/table"/>
+						<entry excluding="UDPServer.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/udp"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863" moduleId="org.eclipse.cdt.core.settings" name="sqlite3_d">
+				<externalSettings>
+					<externalSetting>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="includePath" name="/Exec04"/>
+						<entry flags="VALUE_WORKSPACE_PATH" kind="libraryPath" name="/Exec04/sqlite3_d"/>
+						<entry flags="RESOLVED" kind="libraryFile" name="sqlite3" srcPrefixMapping="" srcRootPath=""/>
+					</externalSetting>
+				</externalSettings>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.PE" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactExtension="dll" artifactName="sqlite3" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.sharedLib" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.sharedLib,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863" name="sqlite3_d" parent="cdt.managedbuild.config.gnu.mingw.exe.release">
+					<folderInfo id="cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.mingw.exe.release.648909497" name="MinGW GCC" superClass="cdt.managedbuild.toolchain.gnu.mingw.exe.release">
+							<targetPlatform id="cdt.managedbuild.target.gnu.platform.mingw.exe.release.1243614828" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.mingw.exe.release"/>
+							<builder buildPath="${workspace_loc:/exec04}/Release" id="cdt.managedbuild.tool.gnu.builder.mingw.base.1767992473" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="CDT Internal Builder" superClass="cdt.managedbuild.tool.gnu.builder.mingw.base"/>
+							<tool command="as" commandLinePattern="${COMMAND} ${FLAGS} ${OUTPUT_FLAG} ${OUTPUT_PREFIX}${OUTPUT} ${INPUTS}" id="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release.63943884" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.mingw.exe.release">
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.841046090" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.archiver.mingw.base.342121988" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.mingw.base"/>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release.292562768" name="GCC C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.mingw.exe.release">
+								<option id="gnu.cpp.compiler.mingw.exe.release.option.optimization.level.470229108" name="Optimization Level" superClass="gnu.cpp.compiler.mingw.exe.release.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.mingw.exe.release.option.debugging.level.795355652" name="Debug Level" superClass="gnu.cpp.compiler.mingw.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.default" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.include.paths.1888237378" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;G:\Dev\tools\sqlite\sqlite-amalgamation-3250200&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/sqlite}&quot;"/>
+								</option>
+								<option id="gnu.cpp.compiler.option.other.pic.1864638247" name="Position Independent Code (-fPIC)" superClass="gnu.cpp.compiler.option.other.pic" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.other.other.881655506" name="Other flags" superClass="gnu.cpp.compiler.option.other.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fno-builtin" valueType="string"/>
+								<option id="gnu.cpp.compiler.option.dialect.std.446242458" name="Language standard" superClass="gnu.cpp.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.cpp.compiler.dialect.c++1y" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.prof.559504963" superClass="gnu.cpp.compiler.option.debugging.prof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.compiler.option.debugging.gprof.222487811" superClass="gnu.cpp.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.629147589" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release.704725992" name="GCC C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.mingw.exe.release">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.mingw.exe.release.option.optimization.level.1026733651" name="Optimization Level" superClass="gnu.c.compiler.mingw.exe.release.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.mingw.exe.release.option.debugging.level.92793418" name="Debug Level" superClass="gnu.c.compiler.mingw.exe.release.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.default" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.include.paths.371573120" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="&quot;G:\Dev\tools\sqlite\sqlite-amalgamation-3250200&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/src/sqlite}&quot;"/>
+								</option>
+								<option id="gnu.c.compiler.option.misc.pic.72518669" name="Position Independent Code (-fPIC)" superClass="gnu.c.compiler.option.misc.pic" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.misc.other.1792554078" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fno-builtin -Wunused-but-set-variable -Wunused-but-set-variable" valueType="string"/>
+								<option id="gnu.c.compiler.option.dialect.std.543615085" name="Language standard" superClass="gnu.c.compiler.option.dialect.std" useByScannerDiscovery="true" value="gnu.c.compiler.dialect.c11" valueType="enumerated"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1551601729" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
+									<listOptionValue builtIn="false" value="SQLITE_THREADSAFE=1"/>
+									<listOptionValue builtIn="false" value="SQLITE_DEFAULT_MEMSTATUS=0"/>
+									<listOptionValue builtIn="false" value="SQLITE_DEFAULT_WAL_SYNCHRONOUS=1"/>
+									<listOptionValue builtIn="false" value="SQLITE_LIKE_DOESNT_MATCH_BLOBS"/>
+									<listOptionValue builtIn="false" value="SQLITE_MAX_EXPR_DEPTH=0"/>
+								</option>
+								<option id="gnu.c.compiler.option.debugging.prof.1038914166" name="Generate prof information (-p)" superClass="gnu.c.compiler.option.debugging.prof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.c.compiler.option.debugging.gprof.1675548176" superClass="gnu.c.compiler.option.debugging.gprof" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1080635611" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release.1606971469" name="MinGW C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.mingw.exe.release">
+								<option defaultValue="true" id="gnu.c.link.option.shared.1279345680" name="Shared (-shared)" superClass="gnu.c.link.option.shared" valueType="boolean"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release.542065279" name="MinGW C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.mingw.exe.release">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.624654037" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
+									<listOptionValue builtIn="false" value="pthread"/>
+									<listOptionValue builtIn="false" value="boost_system-mgw72-mt-d-x64-1_67"/>
+									<listOptionValue builtIn="false" value="ws2_32"/>
+								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.paths.812077336" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths" useByScannerDiscovery="false" valueType="libPaths">
+									<listOptionValue builtIn="false" value="&quot;C:\Programs\boost\boost_1_67_0\lib&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/${ProjName}/alogger}&quot;"/>
+								</option>
+								<option defaultValue="true" id="gnu.cpp.link.option.shared.955419852" name="Shared (-shared)" superClass="gnu.cpp.link.option.shared" useByScannerDiscovery="false" value="true" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.strip.1864525382" name="Omit all symbol information (-s)" superClass="gnu.cpp.link.option.strip" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.nodeflibs.1178987713" name="Do not use default libraries (-nodefaultlibs)" superClass="gnu.cpp.link.option.nodeflibs" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.nostdlibs.1114382238" name="No startup or default libs (-nostdlib)" superClass="gnu.cpp.link.option.nostdlibs" useByScannerDiscovery="false" value="false" valueType="boolean"/>
+								<option id="gnu.cpp.link.option.flags.1543592105" name="Linker flags" superClass="gnu.cpp.link.option.flags" useByScannerDiscovery="false" value="-static -static-libgcc -static-libstdc++" valueType="string"/>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="true" id="gnu.cpp.link.option.other.122461408" name="Other options (-Xlinker [option])" superClass="gnu.cpp.link.option.other" useByScannerDiscovery="false" valueType="stringList"/>
+								<option id="gnu.cpp.link.option.implname.1384009824" name="Import Library name (-Wl,--out-implib=)" superClass="gnu.cpp.link.option.implname" useByScannerDiscovery="false" value="libsqlite3.a" valueType="string"/>
+								<option id="gnu.cpp.link.option.defname.472284682" name="DEF file name (-Wl,--output-def=)" superClass="gnu.cpp.link.option.defname" useByScannerDiscovery="false" value="libsqlite3.def" valueType="string"/>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.2113687669" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry excluding="awt|SQLiteEx_g/example|src/table|example|src/PacketDump|src/startCDT|*.cpp|src/algo|src" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name=""/>
+						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="SQLiteEx_g/example"/>
+						<entry excluding="codetest|awt|cli|udp|algo|table|startCDT|*.cpp|PacketDump|alogger|sqlite|sharedmem|algo1" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src"/>
+						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/PacketDump"/>
+						<entry excluding="List.cpp|frames.cpp|bitree.c|algo_main.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/algo"/>
+						<entry excluding="AsyncLogger.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/alogger"/>
+						<entry excluding="AppWorkerThread.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/awt"/>
+						<entry excluding="InputParser.cpp|AppParser.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/cli"/>
+						<entry excluding="AppCodeTest.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/codetest"/>
+						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sharedmem"/>
+						<entry excluding="SQLiteTest_Main.cpp|sqlite3.c|shell_Main.c|gistfile1.cpp|shellMain.c|shell.c" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/sqlite"/>
+						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/startCDT"/>
+						<entry excluding="*.cpp" flags="VALUE_WORKSPACE_PATH" kind="sourcePath" name="src/table"/>
 						<entry excluding="UDPServer.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src/udp"/>
 					</sourceEntries>
 				</configuration>

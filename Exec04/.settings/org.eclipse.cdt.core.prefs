@@ -322,6 +322,17 @@ environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054/TMP/o
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054/TMP/value=C\:\\Temp
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054/append=true
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054/appendContributed=true
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/BOOST_HOME/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/BOOST_HOME/operation=append
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/BOOST_HOME/value=C\:\\Dev\\boost\\boost_1_67_0\\boost_1_67_0
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/PATH/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/PATH/operation=replace
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/PATH/value=${SQLITE_HOME};${workspace\:Exec04}\\alogger;${MINGW_HOME}\\bin;${MSYS_HOME}\\bin;${MSYS_HOME}\\usr\\bin;C\:\\MinGW-w64\\mingw64\\bin;C\:\\MinGW-w64\\mingw64\\msys64\\usr\\bin
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/SQLITE_HOME/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/SQLITE_HOME/operation=append
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/SQLITE_HOME/value=C\:\\Dev\\sqlite\\sqlite-dll-win64-x64-3240000
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/append=true
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744.226219863/appendContributed=true
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744/BOOST_HOME/delimiter=;
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744/BOOST_HOME/operation=append
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.release.1169840303.1403080465.1908807257.423021744/BOOST_HOME/value=C\:\\Dev\\boost\\boost_1_67_0\\boost_1_67_0
