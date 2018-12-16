@@ -24,8 +24,13 @@ class ThreadMsg
 public:
 	ThreadMsg(ThreadMsgType msgType, const UserData* msg)
 		: msgType(msgType),
-		  msg(std::move(msg)),
+		  msg(msg),
 		  tp(system_clock::now()) {
+	}
+
+	~ThreadMsg() {
+		delete msg;
+		msg = nullptr;
 	}
 
 	std::string getTimeStamp() {
@@ -48,6 +53,8 @@ public:
 		rs.append(std::to_string(ms.count()));
 		return rs;
 	}
+
+	const UserData* getMsg() const { return msg; }
 
 	private:
 		ThreadMsgType msgType;

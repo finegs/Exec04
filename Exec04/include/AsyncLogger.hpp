@@ -23,6 +23,7 @@
 #include <mutex>
 #include <unistd.h>
 #include <mutex>
+#include <unordered_map>
 
 
 #include <condition_variable>
@@ -48,6 +49,8 @@ static std::string MSG_INF("[I]");
 static std::string MSG_DBG("[D]");
 static std::string MSG_ERR("[E]");
 static std::string MSG_FATAL("[F]");
+
+static std::string _ASYNC_ROOT_LOGGER("Root");
 
 enum AsyncLogLevel {
 	L_DEBUG = 0, L_INFO, L_ERROR, L_FATAL
@@ -80,12 +83,51 @@ private:
 
 class AsyncLogger {
 public:
+	static int init(int argc, char* argv[]);
+	static AsyncLogger& getLogger(const std::string& loggerName);
+	static bool registerLogger(const std::string& loggerName, AsyncLogger& logger);
+	static AsyncLogger& unregisterLogger(const std::string& loggerName);
+public:
 	AsyncLogger();
+
+	explicit
+	AsyncLogger(const std::string& name)
+				: name(name),
+				  isStart(true),
+				  isPause(true),
+				  logWriter(nullptr),
+				  ts(nullptr),
+				  out(nullptr),
+				  level(asynclogger::AsyncLogLevel::L_INFO) {}
+	AsyncLogger(const AsyncLogger& logger)
+				: name(logger.name),
+				  isStart(logger.isStart),
+				  isPause(logger.isPause),
+				  logWriter(logger.logWriter),
+				  ts(nullptr),
+				  out(nullptr),
+				  level(logger.level) {}
+
+	AsyncLogger(AsyncLogger&& logger)
+				: name(std::move(logger.name)),
+				  msgQueue(std::move(logger.msgQueue)),
+				  isStart(logger.isStart),
+				  isPause(logger.isPause),
+				  logWriter(std::move(logWriter)),
+				  ts(std::move(logger.ts)),
+				  out(std::move(logger.out)),
+				  level(logger.level)
+	{
+		logger.logWriter = nullptr;
+		logger.out = nullptr;
+	}
+
 	~AsyncLogger();
+
 
 	const char* getTS();
 	void getTS(const TimePoint& tp, char* ts);
-	AsyncLogLevel getLevel() const {
+	const AsyncLogLevel& getLevel() const {
 		return this->level;
 	}
 	void setLevel(const AsyncLogLevel& level) {
@@ -109,8 +151,11 @@ public:
 	}
 	void join();
 
+	const std::string& getName() const { return name; }
+
 private:
 	//	std::priority_queue<asynclogger::AsyncLoggerMessage*> que;
+	const std::string name;
 	std::queue<asynclogger::AsyncLogMsg*> msgQueue;
 	std::mutex mtx;
 	std::condition_variable cv;
@@ -119,9 +164,13 @@ private:
 	bool isPause;
 	std::thread* logWriter;
 	char* ts;
-	std::ostream out;
+	std::ostream* out;
 	std::mutex outMtx;
 	AsyncLogLevel level;
+
+	static std::unordered_map<std::string, asynclogger::AsyncLogger> loggers;
+
+
 
 	void subTask();
 	void log(const asynclogger::AsyncLogLevel& level, const std::string& str);

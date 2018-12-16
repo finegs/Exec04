@@ -22,7 +22,14 @@ const static std::string WORKER_PREFIX = "Worker_";
 class WorkerThread
 {
 public:
-	WorkerThread(const char* threadName) : m_thread(nullptr), threadName(threadName) {};
+	WorkerThread(const char* threadName)
+		: m_thread(nullptr),
+		  m_timerThread(nullptr),
+		  threadName(threadName),
+		  m_timerExit(false),
+		  m_timerPause(true) {
+		m_timerCycle = 250;
+	};
 
 	~WorkerThread() {
 		exitThread();
@@ -38,9 +45,16 @@ public:
 	static std::thread::id getCurrentThreadId();
 
 	std::queue<ThreadMsg*> getQueue() const { return m_queue; }
-	const std::thread& getTimerThread() const { return m_timerThread; }
+	std::thread* getTimerThread() const { return m_timerThread; }
 
 	void postMsg(const UserData* data);
+
+	bool createTimerThread();
+	void pauseTimer();
+	void resumeTimer();
+
+	int setTimerCycle(int cycle);
+	int getTimerCycle() const;
 
 private:
 	WorkerThread(const WorkerThread&);
@@ -55,12 +69,14 @@ private:
 #endif
 
 	std::thread* m_thread;
-	std::thread m_timerThread;
+	std::thread* m_timerThread;
+	const char* threadName;
 	std::queue<ThreadMsg*> m_queue;
 	std::mutex	m_mutex;
 	std::condition_variable m_cv;
 	std::atomic<bool> m_timerExit;
-	const char* threadName;
+	std::atomic<bool> m_timerPause;
+	std::atomic<int>  m_timerCycle;
 };
 
 #endif /* WORKERTHREAD_HPP_ */

@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <thread>
+#include <sstream>
 #include "WorkerThread.hpp"
 
 using std::thread;
@@ -24,11 +25,17 @@ bool WorkerThread::createThread()
 	return true;
 }
 
+bool WorkerThread::createTimerThread()
+{
+	if(m_timerThread) return true;
+	m_timerExit = false;
+	m_timerThread = new std::thread(&WorkerThread::processTimer, this);
+	return true;
+}
+
 void WorkerThread::process()
 {
-	m_timerExit = false;
-	std::thread timerThread(&WorkerThread::processTimer, this);
-
+	createTimerThread();
 	while(1)
 	{
 		ThreadMsg* msg = 0;
@@ -52,26 +59,29 @@ void WorkerThread::process()
 			const UserData* userData = static_cast<const UserData*>(msg->msg);
 			std::cout << userData->getTimeStamp() << " " << userData->msg << " on " << threadName << std::endl;
 
-			delete userData;
 			delete msg;
-
+			msg = nullptr;
 			break;
 		}
 
 		case MsgTimer:
 		{
-			std::cout << msg->getTimeStamp() << " Timer expired on " << threadName << std::endl;
+			std::cout << msg->getTimeStamp() << " Timer expired on " << threadName << ", User Message=" << msg->getMsg()->msg << std::endl;
 
 			delete msg;
+			msg = nullptr;
 			break;
 		}
 
 		case MsgExitThread:
 		{
-			std::cout << msg->getTimeStamp() << threadName << " is about to exit. TimerThreadId = " << m_timerThread.get_id() << std::endl;
+			std::cout << msg->getTimeStamp() << threadName << " is about to exit. TimerThreadId = " << m_timerThread->get_id() << std::endl;
 
 			m_timerExit = true;
-			m_timerThread.join();
+			if(m_timerThread) {
+				m_timerThread->join();
+				m_timerThread = nullptr;
+			}
 
 			delete msg;
 			std::unique_lock<std::mutex> lk(m_mutex);
@@ -102,6 +112,18 @@ void WorkerThread::postMsg(const UserData* data)
 	std::unique_lock<std::mutex> lk(m_mutex);
 	m_queue.push(msg);
 	m_cv.notify_all();
+}
+
+void WorkerThread::pauseTimer()
+{
+	assert(m_timerThread);
+	m_timerPause = true;
+}
+
+void WorkerThread::resumeTimer()
+{
+	assert(m_timerThread);
+	m_timerPause = false;
 }
 
 void WorkerThread::exitThread()
@@ -165,14 +187,36 @@ unsigned long WorkerThread::processWin32(void* parameter)
 
 void WorkerThread::processTimer()
 {
+	stringstream ss;
+	ss << std::this_thread::get_id();
 	while(!m_timerExit)
 	{
-		std::this_thread::sleep_for(250ms);
+//		std::this_thread::sleep_for(std::chrono::duration<std::chrono::milliseconds>(250));
+//		int tc = m_timerCycle.load(std::memory_order_relaxed);
+		std::this_thread::sleep_for(std::chrono::milliseconds(m_timerCycle));
+		// by SGK 2018. 12. 15. add timer pause
+		if(m_timerPause) continue;
 
-		ThreadMsg* msg = new ThreadMsg(MsgTimer, 0);
+		UserData* um = new UserData(ss.str());
+
+		ThreadMsg* msg = new ThreadMsg(MsgTimer, um);
 		std::unique_lock<std::mutex> lk(m_mutex);
 		m_queue.push(msg);
 		m_cv.notify_one();
 	}
 }
+
+int WorkerThread::setTimerCycle(int newCycle)
+{
+	int oldCycle = m_timerCycle.load(std::memory_order_relaxed);
+	if(newCycle == oldCycle) return oldCycle;
+	m_timerCycle.store(newCycle, std::memory_order_relaxed);
+	return oldCycle;
+}
+
+int WorkerThread::getTimerCycle() const
+{
+	return m_timerCycle.load(std::memory_order_relaxed);
+}
+
 
