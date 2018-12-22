@@ -200,4 +200,88 @@ int f03()
 	return rc;
 }
 
+namespace smi
+{
+
+using namespace std;
+
+String::String(const char* _s)
+{
+	std::size_t _l;
+	s = new char[(_l = strlen(_s)) + 1];
+	strncpy(s, _s, _l);
+	memset(s+_l, '\0', sizeof(char));
+}
+
+String::String(const String& _o)
+{
+	std::size_t _l;
+	s = new char[(_l = strlen(_o.s)) + 1];
+	strncpy(s, _o.s, _l);
+	memset(s+_l, '\0', sizeof(char));
+}
+
+String::String(String&& _s)
+{
+	s = _s.s;
+	_s.s = nullptr;
+}
+
+const char* String::getS() const
+{
+	return s;
+}
+
+String& String::operator=(const String& rhs)
+{
+	delete[] this->s;
+	std::size_t _l;
+	this->s = new char[(_l = strlen(rhs.s))+1];
+	strncpy(this->s, rhs.s, _l);
+	memset(s+_l, '\0', sizeof(char));
+
+	return *this;
+}
+
+bool String::operator==(const String& rhs)
+{
+	return !strcmp(this->s, rhs.s);
+}
+
+//std::istream& operator>>(std::istream& is, smi::String& s)
+//{
+//	is >> s.s;
+//
+//
+//	return is;
+//}
+
+std::ostream& operator<<(std::ostream& os, const String& s)
+{
+	os << s.s;
+	return os;
+}
+
+String& String::operator+=(const String& rhs)
+{
+	std::size_t l0,l1;
+
+	char* n = new char[(l0 = strlen(s)) + (l1 = strlen(rhs.s)) + 1];
+	strncpy(n, s, l0);
+	strncpy(n+l0, rhs.s, l1);
+	memset(n+l0+l1, '\0', sizeof(char));
+	delete[] s;
+	s = n;
+	return *this;
+}
+
+String String::operator+(const String& rhs) const
+{
+	String t(*this);
+	t += rhs;
+	return t;
+}
+
+}
+
 
