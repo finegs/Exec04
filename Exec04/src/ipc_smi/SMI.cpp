@@ -215,6 +215,7 @@ String::String(const char* _s)
 
 String::String(const String& _o)
 {
+	if(this==&_o) return;
 	std::size_t _l;
 	s = new char[(_l = strlen(_o.s)) + 1];
 	strncpy(s, _o.s, _l);
@@ -223,6 +224,7 @@ String::String(const String& _o)
 
 String::String(String&& _s)
 {
+	if(this==&_s) return;
 	s = _s.s;
 	_s.s = nullptr;
 }
@@ -234,6 +236,7 @@ const char* String::getS() const
 
 String& String::operator=(const String& rhs)
 {
+	if(this==&rhs) return *this;
 	delete[] this->s;
 	std::size_t _l;
 	this->s = new char[(_l = strlen(rhs.s))+1];
@@ -264,6 +267,7 @@ std::ostream& operator<<(std::ostream& os, const String& s)
 
 String& String::operator+=(const String& rhs)
 {
+	if(this == &rhs) return *this;
 	std::size_t l0,l1;
 
 	char* n = new char[(l0 = strlen(s)) + (l1 = strlen(rhs.s)) + 1];
