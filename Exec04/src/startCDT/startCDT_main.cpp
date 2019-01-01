@@ -88,16 +88,16 @@ int main(int argc, char* argv[])
 
     for(int j = 1;j<argc;j++)
     {
-    	if("-f" == argv[j] && argc > j+1)
+    	if(!strcmp("-f", argv[j]) && argc > j+1)
     	{
     		std::ifstream fi(argv[j+1], std::ifstream::in);
     		std::string pathCfg;
     		while(fi.good())
     		{
-    			std::string s;
-    			fi >> s;
-    			if(s.size() < 1 || '#' == s[0]) continue;
-    			pathCfg += s;
+    			std::string ss;
+    			fi >> ss;
+    			if(ss.size() < 1 || '#' == ss[0]) continue;
+    			pathCfg += ss;
     		}
 
     		s = pathCfg;
@@ -112,10 +112,8 @@ int main(int argc, char* argv[])
         		";C:\\MinGW-w64\\mingw64\\x86_64-w64-mingw32\\bin"
         		";C:\\MinGW-w64\\mingw64\\msys64\\usr\\bin;";
     }
-    env_path.insert(0, s.c_str());
 
     env_path.insert(0, s.c_str());
-
 
     std::cout << "In main process, `PATH`=" << env_path << std::endl;
     env_path += ";C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64";
