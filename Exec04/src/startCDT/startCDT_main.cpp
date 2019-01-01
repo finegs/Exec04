@@ -41,6 +41,7 @@ WinMain (HINSTANCE hIntance, HINSTANCE hPrevInst, LPTSTR lpCmdLine, int nShowCmd
 #if 1
 
 #include <iostream>
+#include <fstream>
 #include <string>
 #include <cstdlib>
 #ifdef _WIN32
@@ -77,12 +78,44 @@ int main(int argc, char* argv[])
     }
     std::string env_path = buf;
 
-    std::string s =
-    		"C:\\MinGW-w64\\mingw64\\bin"
-    		";C:\\MinGW-w64\\mingw64\\msys64\\bin"
-    		";C:\\MinGW-w64\\mingw64\\x86_64-w64-mingw32\\bin"
-    		";C:\\MinGW-w64\\mingw64\\msys64\\usr\\bin;";
+    std::string s;
+//		=
+//    		"C:\\MinGW-w64\\mingw64\\bin"
+//    		";C:\\MinGW-w64\\mingw64\\msys64\\bin"
+//    		";C:\\MinGW-w64\\mingw64\\x86_64-w64-mingw32\\bin"
+//    		";C:\\MinGW-w64\\mingw64\\msys64\\usr\\bin;";
+//    env_path.insert(0, s.c_str());
+
+    for(int j = 1;j<argc;j++)
+    {
+    	if("-f" == argv[j] && argc > j+1)
+    	{
+    		std::ifstream fi(argv[j+1], std::ifstream::in);
+    		std::string pathCfg;
+    		while(fi.good())
+    		{
+    			std::string s;
+    			fi >> s;
+    			if(s.size() < 1 || '#' == s[0]) continue;
+    			pathCfg += s;
+    		}
+
+    		s = pathCfg;
+    	}
+    }
+
+    if(s.size() == 0)
+    {
+        std::string s =
+        		"C:\\MinGW-w64\\mingw64\\bin"
+        		";C:\\MinGW-w64\\mingw64\\msys64\\bin"
+        		";C:\\MinGW-w64\\mingw64\\x86_64-w64-mingw32\\bin"
+        		";C:\\MinGW-w64\\mingw64\\msys64\\usr\\bin;";
+    }
     env_path.insert(0, s.c_str());
+
+    env_path.insert(0, s.c_str());
+
 
     std::cout << "In main process, `PATH`=" << env_path << std::endl;
     env_path += ";C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\VC\\bin\\amd64";

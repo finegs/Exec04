@@ -176,7 +176,7 @@ int main(int argc, char* argv[]) {
 
 #endif
 
-#if 1
+#if 0
 
 #include <iostream>
 #include <iomanip>
@@ -275,3 +275,51 @@ int main(int argc, char* argv[])
 
 #endif
 
+#if 1
+
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+#include <string>
+#include <thread>
+#include <chrono>
+#include <cctype>
+#include <cstddef>
+
+struct custom_traits: std::char_traits<char> {
+	 static bool IGNORE_CAPITAL;
+	 static bool eq(char c, char d)
+	 {
+		 return std::tolower(c) == std::tolower(d);
+	 }
+	 static bool eq2(char c, char d)
+	 {
+		 return c == d;
+	 }
+	 static const char* find(const char* s, std::size_t n , char c)
+	 {
+		 if(IGNORE_CAPITAL)
+			 while( n-- && !eq(*s, c)) ++s;
+		 else
+			 while( n-- && !eq2(*s, c)) ++s;
+		 return s;
+	 }
+};
+
+
+bool	custom_traits::IGNORE_CAPITAL(true);
+
+int main(int argc, char* argv[])
+{
+
+	for (int i = 1; i < argc; ++i) {
+		if(!strcmp("-i", argv[i])) custom_traits::IGNORE_CAPITAL = false;
+	}
+
+	std::basic_string<char, custom_traits> str("Test");
+	std::cout << "T found at position " << str.find('t') << std::endl;
+	return EXIT_SUCCESS;
+}
+
+
+#endif
