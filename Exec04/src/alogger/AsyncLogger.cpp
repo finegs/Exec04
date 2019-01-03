@@ -10,11 +10,13 @@ using namespace asynclogger;
 
 
 template<typename ... Args>
-std::string& ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
+std::string ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
 	size_t size = snprintf(nullptr, 0, format, args ...);
 	unique_ptr<char[]> buf(new char[size]);
 	snprintf(buf.get(), size, format, args ...);
-	return std::string(buf.get(), buf.get()+size-1);
+//	std::string ss(buf);
+	return std::move(std::string(buf.get(), buf.get()+size-1));
+//	return std::move(ss);
 }
 
 void ALOGGER_DLL asynclogger::mformat(const char* format) {
@@ -48,6 +50,8 @@ AsyncLogMsg::AsyncLogMsg( const char* _msg, const AsyncLogLevel& level) {
 AsyncLogMsg::~AsyncLogMsg() {
 	delete[] msg;
 }
+
+std::unordered_map<std::string, asynclogger::AsyncLogger> AsyncLogger::loggers;
 
 AsyncLogger& AsyncLogger::getLogger(const std::string& loggerName)
 {
