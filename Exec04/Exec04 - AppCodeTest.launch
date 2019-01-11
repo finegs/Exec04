@@ -19,11 +19,10 @@
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_START_MODE" value="run"/>
 <booleanAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN" value="true"/>
 <stringAttribute key="org.eclipse.cdt.launch.DEBUGGER_STOP_AT_MAIN_SYMBOL" value="main"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_ARGUMENTS" value="-f startCDT.ini"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="startCDTg/startCDTg.exe"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="AppCodeTest/AppCodeTest.exe"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="Exec04"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="true"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value="cdt.managedbuild.config.gnu.mingw.exe.debug.1603698054.689963628.865965318"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/Exec04"/>
 </listAttribute>

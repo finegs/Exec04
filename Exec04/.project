@@ -3,6 +3,7 @@
 	<name>Exec04</name>
 	<comment></comment>
 	<projects>
+		<project>Exec04</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

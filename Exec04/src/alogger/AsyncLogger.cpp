@@ -8,23 +8,27 @@ using namespace std::chrono;
 using namespace std::this_thread;
 using namespace asynclogger;
 
-
 template<typename ... Args>
-std::string ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
+ALOGGER_DLL
+std::string asynclogger::sformat(const std::string& format, Args ... args) {
 	size_t size = snprintf(nullptr, 0, format, args ...);
 	unique_ptr<char[]> buf(new char[size]);
 	snprintf(buf.get(), size, format, args ...);
 //	std::string ss(buf);
-	return std::move(std::string(buf.get(), buf.get()+size-1));
+//	return std::move(std::string(buf.get(), buf.get()+size-1));
+	return std::string(buf.get(), buf.get()+size-1);
 //	return std::move(ss);
 }
 
-void ALOGGER_DLL asynclogger::mformat(const char* format) {
+void
+ALOGGER_DLL
+asynclogger::mformat(const char* format) {
 	std::cout << format;
 }
 
 template<typename T, typename... Targs>
-void ALOGGER_DLL asynclogger::mprintf(const char* format, T value, Targs... Fargs) {
+ALOGGER_DLL
+void asynclogger::mprintf(const char* format, T value, Targs... Fargs) {
 	for(;*format!= '\0';format++) {
 		if(*format=='%') {
 			std::cout << value;

@@ -25,7 +25,6 @@
 #include <mutex>
 #include <unordered_map>
 
-
 #include <condition_variable>
 
 #include <sys/time.h>
@@ -33,10 +32,16 @@
 #include <queue>
 #include <exception>
 
+#ifdef _WIN32
 #ifdef BUILDING_DLL
 #define ALOGGER_DLL __declspec(dllexport)
-#else
+#elif USING_DLL
 #define ALOGGER_DLL __declspec(dllimport)
+#else
+#define ALOGGER_DLL
+#endif
+#else
+#define ALOGGER_DLL
 #endif
 
 
@@ -66,7 +71,7 @@ void ALOGGER_DLL mformat(const char* format);
 template<typename T, typename... Targs>
 void ALOGGER_DLL mprintf(const char* format, T value, Targs... Fargs);
 
-class AsyncLogMsg {
+class ALOGGER_DLL AsyncLogMsg {
 public:
 	AsyncLogMsg( const char* _msg, const AsyncLogLevel& level = AsyncLogLevel::L_INFO);
 	~AsyncLogMsg();
@@ -81,7 +86,7 @@ private:
 
 };
 
-class AsyncLogger {
+class ALOGGER_DLL AsyncLogger {
 public:
 	static int init(int argc, char* argv[]);
 	static AsyncLogger& getLogger(const std::string& loggerName);
@@ -125,8 +130,6 @@ public:
 	~AsyncLogger();
 
 
-	const char* getTS();
-	void getTS(const TimePoint& tp, char* ts);
 	const AsyncLogLevel& getLevel() const {
 		return this->level;
 	}
@@ -152,6 +155,8 @@ public:
 	void join();
 
 	const std::string& getName() const { return name; }
+	const char* getTS();
+	void getTS(const TimePoint& tp, char* ts);
 
 private:
 	//	std::priority_queue<asynclogger::AsyncLoggerMessage*> que;
