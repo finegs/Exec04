@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /Debug/
 /Release/
 /alogger/
@@ -31,37 +30,4 @@
 /startCDTg/
 /AppUDPListen/
 /AppUDPSend/
-=======
-/Debug/
-/Release/
-/alogger/
-/Example_Main/
-/Example_dll/
-/algo/
-/aloggerTest/
-/exec01/
-/StoreTable/
-/startCDT/
-/LoadSharedMem/
-/SQLiteEx_g/
-/SQLiteEx/
-/sqlite/
-/udp_client/
-/udp_server/
-/AppInputParser/
-/AppWorkerThread/
-/familyGuy.db
-/AppExec01/
-/AppTest/
-/AppCodeTest/
-/sqlite3/
-/sqlite3_d/
-/AppSMI/
-/AppSMI_Prod/
-/AppSMI_Consumer/
-/CodeTest/
-/AppMwxHelloWorld/
-/startCDTg/
-/AppUDPListen/
-/AppUDPSend/
->>>>>>> branch 'master' of https://github.com/finegs/Exec04.git
+/AppExec02/

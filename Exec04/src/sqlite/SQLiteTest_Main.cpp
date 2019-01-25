@@ -84,7 +84,7 @@ int createDBnCreateTable(sqlite3** db) {
 		cout<<"Open database successfully\n\n";
 	}
 
-	createTableDDL = "create table myTable (FirstName varchar(30), LastName varchar(30), Age smallint, Hometown varchar(30), Job varchar(30))";
+	createTableDDL = "CREATE TABLE myTable (FirstName varchar(30), LastName varchar(30), Age smallint, Hometown varchar(30), Job varchar(30))";
 
 	rc = sqlite3_exec(*db, createTableDDL, callback, 0, &zErrMsg);
 	if( rc!=SQLITE_OK )
@@ -106,9 +106,9 @@ int dropTablenCloseDB(sqlite3** db) {
 
 	if(!*db) return EXIT_SUCCESS;
 
-	query[0] = "delete from myTable";
+	query[0] = "DELETE FROM myTable";
 
-	query[1] = "drop table myTable";
+	query[1] = "DROP TABLE myTable";
 
 	for(int i = 0; i < queryCnt; i++)
 	{
@@ -149,15 +149,15 @@ int run(sqlite3** db, int total) noexcept
 
 		querys.clear();
 
-		querys.push_back("insert into myTable (FirstName, LastName, Age, Hometown, Job) values ('Peter', 'Griffin', 41, 'Quahog', 'Brewery')");
+		querys.push_back("INSERT INTO myTable (FirstName, LastName, Age, Hometown, Job) VALUES ('Peter', 'Griffin', 41, 'Quahog', 'Brewery')");
 
-		querys.push_back("insert into myTable (FirstName, LastName, Age, Hometown, Job) values ('Lois', 'Griffin', 40, 'Newport', 'Piano Teacher')");
+		querys.push_back("INSERT INTO myTable (FirstName, LastName, Age, Hometown, Job) VALUES ('Lois', 'Griffin', 40, 'Newport', 'Piano Teacher')");
 
-		querys.push_back("insert into myTable (FirstName, LastName, Age, Hometown, Job) values ('Joseph', 'Swanson', 39, 'Quahog', 'Police Officer')");
+		querys.push_back("INSERT INTO myTable (FirstName, LastName, Age, Hometown, Job) VALUES ('Joseph', 'Swanson', 39, 'Quahog', 'Police Officer')");
 
-		querys.push_back("insert into myTable (FirstName, LastName, Age, Hometown, Job) values ('Glenn', 'Quagmire', 41, 'Quahog', 'Pilot')");
+		querys.push_back("INSERT INTO myTable (FirstName, LastName, Age, Hometown, Job) VALUES ('Glenn', 'Quagmire', 41, 'Quahog', 'Pilot')");
 
-		querys.push_back("select * from myTable");
+		querys.push_back("SELECT * FROM myTable");
 
 		for(size_t i = 0; i < querys.size(); i++)
 		{
