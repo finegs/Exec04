@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 #endif
 
 
-#if 1
+#if 0
 #include <iostream>
 #include <string>
 #include <vector>
@@ -97,7 +97,7 @@ namespace std
 {
 	class MyClass
 	{
-	private:
+	protected:
 		int i;
 	public:
 		explicit MyClass(int _i) : i(_i) {}
@@ -107,6 +107,8 @@ namespace std
 		MyClass(std::MyClass&& _mc) noexcept : i(_mc.i)
 		{
 		}
+
+		virtual ~MyClass() {};
 
 		MyClass& operator=(const MyClass& _mc)
 		{
@@ -133,6 +135,37 @@ namespace std
 			is >> o.i;
 			return is;
 		}
+
+		virtual int pow() { return i*i;}
+	};
+
+	class MyClass2 : virtual MyClass
+	{
+	public:
+		explicit MyClass2(int _i) : MyClass{_i}, ii(_i) {}
+		MyClass2(const std::MyClass2& o) : MyClass(o), ii{o.ii} {}
+		MyClass2(std::MyClass2&& o) : MyClass(o), ii(o.ii) {}
+		~MyClass2() {}
+
+		friend ostream& operator<<(ostream& os, const MyClass2& obj)
+		{
+			os << (const MyClass&)obj << ", ii=" << obj.ii;
+			return os;
+		}
+
+		friend const istream& operator>>(istream& is, MyClass2& o)
+		{
+			is >> (MyClass&)o;
+			is >> o.ii;
+			return is;
+		}
+
+		int pow()
+		{
+			return MyClass::i*MyClass::i;
+		}
+	private:
+		int ii;
 	};
 };
 
@@ -157,10 +190,10 @@ MyClass getMyClass()
 	return mc;
 }
 
-vector<MyClass> getMyClassV()
+vector<MyClass> getMyClassV(int cnt = 3)
 {
 	vector<MyClass> v;
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < cnt; ++i) {
 		v.push_back(MyClass(i+10));
 	}
 	return v;
@@ -176,7 +209,7 @@ void task01()
 		MyClass mc= getMyClass();
 		cout << &mc << " in main" << endl;
 
-		vector<MyClass> v = getMyClassV();
+		vector<MyClass> v = getMyClassV(10000000);
 		for_each(v.begin(), v.end(), [v](const MyClass& o)
 				{
 			cout << "[" << v.size() << "]" << o;
@@ -205,4 +238,123 @@ int main() {
 
 	return 0;
 }
+#endif
+
+
+#if 0
+
+#include <vector>
+#include <iostream>
+#include <string>
+
+#include <windows.h>
+
+namespace {
+
+const int PUSH_BACK_COUNT_1000 = 2000;
+
+}
+
+using namespace std;
+
+struct JJ
+{
+    int c[50];
+    JJ(int i) { c[5] = 3; c[29] = 4; c[30] = i; c[49] = c[5]; }
+};
+
+void fill_direct_stack()
+{
+    vector<JJ> vec;
+	for (int i = 0; i < PUSH_BACK_COUNT_1000; ++i)
+        vec.push_back(i);
+}
+
+void fill_direct_heap()
+{
+    vector<JJ>* pVec = new vector<JJ>();
+	for (int i = 0; i < PUSH_BACK_COUNT_1000; ++i)
+        pVec->push_back(i);
+    delete pVec;
+}
+
+CRITICAL_SECTION cs_print;
+
+void print(string msg, DWORD val)
+{
+    EnterCriticalSection(&cs_print);
+    cout << msg << val << endl;
+    LeaveCriticalSection(&cs_print);
+}
+
+DWORD __stdcall threadEntry(void*)
+{
+    DWORD ticks1,ticks2;
+
+    ticks1 = GetTickCount();
+    for (int i=0; i<10000; ++i)
+        fill_direct_stack();
+    ticks2 = GetTickCount();
+    print("ticks (stack): ", ticks2 - ticks1);
+
+    ticks1 = GetTickCount();
+    for (int i=0; i<10000; ++i)
+        fill_direct_heap();
+    ticks2 = GetTickCount();
+    print("ticks (heap): ", ticks2 - ticks1);
+
+    return 0;
+}
+
+int main()
+{
+    cout<<"hi"<<endl;
+
+    InitializeCriticalSection(&cs_print);
+
+#define N_THREADS 5
+
+    HANDLE thr[N_THREADS];
+    for (int i=0; i<N_THREADS; ++i)
+        thr[i] = CreateThread(NULL, 0, &threadEntry, NULL, 0, NULL);
+
+    for (int i=0; i<N_THREADS; ++i)
+        WaitForSingleObject(thr[i], INFINITE);
+
+    DeleteCriticalSection(&cs_print);
+
+    system("pause");
+}
+
+#endif
+
+
+#if 1
+
+// declval example
+#include <utility>      // std::declval
+#include <iostream>     // std::cout
+
+struct A {              // abstract class
+  virtual int value() = 0;
+  virtual ~A() {}
+};
+
+class B : public A {    // class with specific constructor
+  int val_;
+public:
+  B(int i,int j):val_(i*j){}
+  ~B() {}
+  int value() {return val_;}
+};
+
+int main() {
+  decltype(std::declval<A>().value()) a;  // int a
+  decltype(std::declval<B>().value()) b;  // int b
+  decltype(B(0,0).value()) c;   // same as above (known constructor)
+  a = b = c = B(10,2).value();
+  std::cout << a << '\n';
+  return 0;
+}
+
 #endif
