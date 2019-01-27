@@ -97,7 +97,7 @@ namespace std
 {
 	class MyClass
 	{
-	private:
+	protected:
 		int i;
 	public:
 		explicit MyClass(int _i) : i(_i) {}
@@ -107,6 +107,8 @@ namespace std
 		MyClass(std::MyClass&& _mc) noexcept : i(_mc.i)
 		{
 		}
+
+		virtual ~MyClass() {};
 
 		MyClass& operator=(const MyClass& _mc)
 		{
@@ -133,6 +135,37 @@ namespace std
 			is >> o.i;
 			return is;
 		}
+
+		virtual int pow() { return i*i;}
+	};
+
+	class MyClass2 : virtual MyClass
+	{
+	public:
+		explicit MyClass2(int _i) : MyClass{_i}, ii(_i) {}
+		MyClass2(const std::MyClass2& o) : MyClass(o), ii{o.ii} {}
+		MyClass2(std::MyClass2&& o) : MyClass(o), ii(o.ii) {}
+		~MyClass2() {}
+
+		friend ostream& operator<<(ostream& os, const MyClass2& obj)
+		{
+			os << (const MyClass&)obj << ", ii=" << obj.ii;
+			return os;
+		}
+
+		friend const istream& operator>>(istream& is, MyClass2& o)
+		{
+			is >> (MyClass&)o;
+			is >> o.ii;
+			return is;
+		}
+
+		int pow()
+		{
+			return MyClass::i*MyClass::i;
+		}
+	private:
+		int ii;
 	};
 };
 
@@ -157,10 +190,10 @@ MyClass getMyClass()
 	return mc;
 }
 
-vector<MyClass> getMyClassV()
+vector<MyClass> getMyClassV(int cnt = 3)
 {
 	vector<MyClass> v;
-	for (int i = 0; i < 3; ++i) {
+	for (int i = 0; i < cnt; ++i) {
 		v.push_back(MyClass(i+10));
 	}
 	return v;
@@ -176,7 +209,7 @@ void task01()
 		MyClass mc= getMyClass();
 		cout << &mc << " in main" << endl;
 
-		vector<MyClass> v = getMyClassV();
+		vector<MyClass> v = getMyClassV(10000000);
 		for_each(v.begin(), v.end(), [v](const MyClass& o)
 				{
 			cout << "[" << v.size() << "]" << o;
