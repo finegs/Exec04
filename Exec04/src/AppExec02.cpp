@@ -329,7 +329,7 @@ int main()
 #endif
 
 
-#if 1
+#if 0
 
 // declval example
 #include <utility>      // std::declval
@@ -355,6 +355,205 @@ int main() {
   a = b = c = B(10,2).value();
   std::cout << a << '\n';
   return 0;
+}
+
+#endif
+
+
+#if 0
+
+#include <iostream>
+#include <cstdlib>
+
+#define WIN32_LEAN_AND_MEAN
+
+#include <winsock2.h>
+#include <Ws2tcpip.h>
+#include <mswsock.h>
+
+#define u_int32 UINT32  // Unix uses u_int32
+
+// Need to link with Ws2_32.lib
+//#pragma comment (lib, "Ws2_32.lib")
+
+
+int                  /* OUT: whatever setsockopt() returns */
+join_source_group(int sd, u_int32 grpaddr,
+   u_int32 srcaddr, u_int32 iaddr)
+{
+   struct ip_mreq_source imr;
+
+   imr.imr_multiaddr.s_addr  = grpaddr;
+   imr.imr_sourceaddr.s_addr = srcaddr;
+   imr.imr_interface.s_addr  = iaddr;
+   return setsockopt(sd, IPPROTO_IP, IP_ADD_SOURCE_MEMBERSHIP, (char *) &imr, sizeof(imr));
+}
+
+int
+leave_source_group(int sd, u_int32 grpaddr,
+   u_int32 srcaddr, u_int32 iaddr)
+{
+   struct ip_mreq_source imr;
+
+   imr.imr_multiaddr.s_addr  = grpaddr;
+   imr.imr_sourceaddr.s_addr = srcaddr;
+   imr.imr_interface.s_addr  = iaddr;
+   return setsockopt(sd, IPPROTO_IP, IP_DROP_SOURCE_MEMBERSHIP, (char *) &imr, sizeof(imr));
+}
+
+int main(int argc, char* argv[]) {
+
+
+
+
+	return EXIT_SUCCESS;
+}
+
+#endif
+
+
+#if 0
+
+#include <iostream>
+#include <cstdlib>
+#include <atomic>
+#include <vector>
+#include <mutex>
+
+using namespace std;
+
+class Widget
+{
+public:
+	Widget() = default;
+	Widget(int _x, bool _b) : x(_x), b(_b) {};
+	Widget(int _x, double _zz) : x(_x), zz(_zz) {};
+//	Widget(std::initializer_list<bool> il);
+
+
+	Widget(const Widget& o) : x(o.x), y(o.y), z(o.z), b(o.b) {};
+	Widget(Widget&& o) : x(o.x), y(o.y), z(o.z), b(o.b) {};
+
+	const Widget& operator=(const Widget& o)
+	{	if(this==&o) return o;
+		x = o.x;
+		y = o.y;
+		z = o.z;
+		b = o.b;
+		return o;
+	}
+
+	Widget& operator=(Widget& o)
+	{
+		if(this==&o) return o;
+		x = o.x;
+		y = o.y;
+		z = o.z;
+		b = o.b;
+		return *this;
+	}
+
+	friend ostream& operator<<(ostream& os, const Widget& o)
+	{
+		os << "x=" << o.x
+				<< ", y=" << o.y
+				<< ", z=" << o.z
+				<< ", b=" << o.b
+			<< endl;
+		return os;
+	}
+
+	friend istream& operator>>(istream& is, Widget& o)
+	{
+		is >> o.x;
+		is >> o.y;
+		is >> o.z;
+		return is;
+	}
+
+public:
+	using RootsType = std::vector<double>;
+
+	RootsType roots() const
+	{
+		RootsType rootVals;
+		std::lock_guard<std::mutex> g(m);
+		if(!rootsAreValid)
+		{
+  			rootsAreValid = true;
+		}
+		return rootVals;
+	}
+private:
+	mutable std::mutex m;
+	mutable bool rootsAreValid{false};
+	int x{0};
+	int y = 0;
+//	int z(0);
+	int z{0};
+	bool b{false};
+	double zz{0.0};
+
+};
+
+std::atomic<int> ai1{ 0 };
+std::atomic<int> ai2( 0 );
+//std::atomic<int> ai3 = 0;
+
+double x,y,z;
+
+int sum1{x+y+z};
+int sum2(x+y+z);
+
+int sum3 = x+y+z;
+
+Widget w0();
+Widget w1{};
+
+int main(int argc, char* argv[])
+{
+	Widget w2{1, 1.5};
+
+	cout << w2 << endl;
+
+	system("pause");
+
+	return EXIT_SUCCESS;
+}
+#endif
+
+
+#if 1
+
+#include <cstdio>
+#include <cstdlib>
+
+int main(int argc, char* argv[])
+{
+	int aList[5][5] = {0};
+	int x  = -1, y = 0, nCounter = 0;
+	int i = 0, j = 0, nLength = 9, nDirection = 1;
+
+	for(nLength = 9;nLength>0;nLength -= 2)
+	{
+		for(i = 0;i<nLength;++i)
+		{
+			if(i<nLength/2+1) x+= nDirection;
+			else			  y+= nDirection;
+			aList[y][x] = ++nCounter;
+		}
+		nDirection = -nDirection;
+	}
+
+	for(i = 0;i<5;++i)
+	{
+		for (j = 0; j < 5; ++j) {
+			printf("%d\t", aList[i][j]);
+		}
+		putchar('\n');
+	}
+
+	return EXIT_SUCCESS;
 }
 
 #endif
