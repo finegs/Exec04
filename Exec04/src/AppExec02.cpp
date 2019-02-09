@@ -523,7 +523,7 @@ int main(int argc, char* argv[])
 #endif
 
 
-#if 1
+#if 0
 
 #include <cstdio>
 #include <cstdlib>
@@ -558,3 +558,124 @@ int main(int argc, char* argv[])
 
 #endif
 
+#if 0
+
+#include <cstdio>
+#include <cstdlib>
+
+int add(int a, int b)
+{
+	return a + b;
+}
+
+__inline int addInline(int a, int b)
+{
+	return a + b;
+}
+
+int main(int argc, char* argv[])
+{
+
+	printf("%d\n", add(1,2));
+	printf("%d\n", addInline(1,2));
+
+
+	return EXIT_SUCCESS;
+}
+
+
+#endif
+
+
+#if 1
+
+#include <iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
+#include <string>
+#include <sstream>
+#include <algorithm>
+
+using namespace std;
+
+void mysort(vector<int>& arr);
+
+string toString(const vector<int>& arr);
+
+int main(int argc, char* argv[])
+{
+
+	while(true)
+	{
+		int n = rand() % 100 + 1;
+		vector<int> input(n);
+
+		for(int i = 0;i<n;i++)
+			input[i] = rand();
+
+		vector<int> mySorted = input;
+		mysort(mySorted);
+		vector<int> reference = input;
+		sort(reference.begin(), reference.end());
+
+		if(mySorted != reference)
+		{
+			cout << "Mismatch!" << endl;
+			cout << "Input\t\t: " << toString(input) << endl;
+			cout << "Expected\t: " << toString(reference) << endl;
+			cout << "Got\t\t: " << toString(mySorted) << endl;
+		}
+		else {
+			cout << "mysort and sort is same " << endl;
+		}
+
+		system("pause");
+	}
+
+	return EXIT_SUCCESS;
+
+}
+
+void mysort(vector<int>& arr)
+{
+	size_t i,j, mi;
+	for(i = 0;i<arr.size();i++)
+	{
+		mi = i;
+		for (j = i+1; j < arr.size(); j++) {
+			if(arr[j]<arr[mi])
+			{
+				mi = j;
+			}
+		}
+		if(mi != i) {
+			int t = arr[i];
+			arr[i]= arr[mi];
+			arr[mi] = t;
+		}
+	}
+}
+
+string toString(const vector<int>& arr)
+{
+	ostringstream ss, header, t;
+	long long sum;
+	double min,max;
+//	string s(arr.begin(), arr.end(), comma);
+	min = 0xFFFFFF, max = -1, sum = 0;
+	for_each(arr.begin(), arr.end(), [&](int n)
+			{
+				min = n < min ? n : min;
+				max = n > max ? n : max;
+				sum += n;
+				ss << n << ", ";
+			});
+	header << "min=" << min << ", "
+			<< "max=" << max << ", "
+			<< "avg=" << (sum/arr.size());
+	t << header.str() << ", " << ss.str();
+	return t.str();
+}
+
+#endif
