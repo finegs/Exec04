@@ -6,8 +6,11 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#define LOGGER 1
+#define LOGGER 0
 #define CV 0
+#define LIB_TEST 0
+#define MAP_TEST 0
+#define FUNC_PT_MAP 1
 
 #ifndef LOGGER
 
@@ -464,6 +467,101 @@ int main()
 	t2.join();
 
 	cout << "done." << std::endl;
+}
+
+#endif
+
+#if LIB_TEST
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+#include <algorithm>
+#include <map>
+#include <unordered_map>
+
+int main (int argc, char* argv[])
+{
+    std::unordered_map<int, std::string> dict = {{1, "one"}, {2, "two"}};
+    dict[3] = "three";
+    dict.emplace(3, "three");
+    dict.emplace(4, "another four");
+    dict.emplace(5, "five");
+
+    bool ok = dict.emplace(1, "another one").second;
+    std::cout << "inserting 1 -> \"another one\" "
+              << (ok ? "succeeded" : "failed") << '\n';
+
+    std::cout << "contents:\n";
+    for(auto& p: dict)
+        std::cout << " " << p.first << " => " << p.second << '\n';
+}
+
+#endif
+
+#if MAP_TEST
+
+#include <iostream>
+#include <cstdlib>
+#include <boost/flyweight.hpp>
+#include <map>
+
+namespace my
+{
+	using string = boost::flyweight<std::string>;
+
+
+	struct Bar
+	{
+
+	};
+
+	struct Foo
+	{
+		std::map<my::string, my::Bar*> bars;
+	};
+}
+
+using namespace my;
+
+int main(int argc, char* argv[])
+{
+	Foo foo;
+	foo.bars.emplace("hello", new Bar());
+	foo.bars.emplace(std::string("world"), new Bar());
+
+	return EXIT_SUCCESS;
+}
+
+#endif
+
+
+#if FUNC_PT_MAP
+
+#include <iostream>
+#include <cstdlib>
+#include <string>
+
+std::string foo() { return "Foo"; }
+std::string bar() { return "Bar"; }
+
+int main()
+{
+    std::map<std::string, std::string (*)()> m;
+
+    // Map the functions to the names
+    m["foo"] = &foo;
+    m["bar"] = &bar;
+
+    // Display all of the mapped functions
+    std::map<std::string, std::string (*)()>::const_iterator it = m.begin();
+    std::map<std::string, std::string (*)()>::const_iterator end = m.end();
+
+    while ( it != end ) {
+        std::cout<< it->first <<"\t\""
+            << (it->second)() <<"\"\n";
+        ++it;
+    }
 }
 
 #endif
