@@ -587,7 +587,7 @@ int main(int argc, char* argv[])
 #endif
 
 
-#if 1
+#if 0
 
 #include <iostream>
 #include <cstdio>
@@ -676,6 +676,60 @@ string toString(const vector<int>& arr)
 			<< "avg=" << (sum/arr.size());
 	t << header.str() << ", " << ss.str();
 	return t.str();
+}
+
+#endif
+
+
+#if 1
+
+#include <iostream>
+#include <cstdlib>
+#include <c++/algorithm>
+#include <c++/utility>
+#include <unordered_map>
+#include <map>
+#include <unordered_set>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <thread>
+
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	using stringmap = map<std::string, std::string>;
+
+	int cnt;
+	stringmap m;
+	fstream fs;
+	cnt = 0;
+	fs.open("input.txt");
+//	if(!fs.is_open())
+	if(0 != (fs.rdstate() & std::fstream::failbit))
+	{
+		cout << "Fail to open file : "<< "input.txt" << "(" << fs.fail() << ", " << fs.bad() << ", " << fs.eof() << ")"  <<endl;
+		return EXIT_FAILURE;
+	}
+
+	while(!fs.eof())
+	{
+		string k,v;
+		fs >> k >> v;
+		cout << "[" << cnt << "] : " << "(" << k << ", " << v << ")" << endl;
+		m.emplace(k, v);
+		cnt++;
+	}
+	fs.close();
+	m.emplace(string("Cnt"), to_string(cnt));
+
+	for_each(m.begin(), m.end(), [&](auto& i)
+	{
+		cout << "[" << cnt << "] : " << "(" << i.first << ", " << i.second << ")" << endl;
+	});
+
+	return EXIT_SUCCESS;
 }
 
 #endif
