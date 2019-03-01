@@ -7,6 +7,7 @@
 //============================================================================
 
 #if 0
+
 #include <iostream>
 #include <string>
 using namespace std;
@@ -79,10 +80,12 @@ int main(int argc, char* argv[])
 
 	return  EXIT_SUCCESS;
 }
+
 #endif
 
 
 #if 0
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -238,6 +241,7 @@ int main() {
 
 	return 0;
 }
+
 #endif
 
 
@@ -520,6 +524,7 @@ int main(int argc, char* argv[])
 
 	return EXIT_SUCCESS;
 }
+
 #endif
 
 
@@ -681,7 +686,7 @@ string toString(const vector<int>& arr)
 #endif
 
 
-#if 1
+#if 0
 
 #include <iostream>
 #include <cstdlib>
@@ -730,6 +735,166 @@ int main(int argc, char* argv[])
 	});
 
 	return EXIT_SUCCESS;
+}
+
+#endif
+
+#if 0
+
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <iterator>
+#include <string>
+#include <algorithm>
+#include <boost/algorithm/string.hpp>
+/*
+ * A class to read data from a csv file.
+ */
+class CSVReader {
+	std::string fileName;
+	std::string delimeter;
+public:
+	CSVReader(std::string filename, std::string delm = ",") :
+			fileName(filename), delimeter(delm) {
+	}
+// Function to fetch data from a CSV File
+	std::vector<std::vector<std::string> > getData();
+};
+/*
+ * Parses through csv file line by line and returns the data
+ * in vector of vector of strings.
+ */
+std::vector<std::vector<std::string> > CSVReader::getData() {
+	std::ifstream file(fileName);
+	std::vector<std::vector<std::string> > dataList;
+	std::string line = "";
+// Iterate through each line and split the content using delimeter
+	while (getline(file, line)) {
+		std::vector<std::string> vec;
+		boost::algorithm::split(vec, line, boost::is_any_of(delimeter));
+		dataList.push_back(vec);
+	}
+// Close the File
+	file.close();
+	return dataList;
+}
+int main() {
+// Creating an object of CSVWriter
+	CSVReader reader("example.csv");
+// Get the data from CSV File
+	std::vector<std::vector<std::string> > dataList = reader.getData();
+// Print the content of row by row on screen
+	for (std::vector<std::string> vec : dataList) {
+		for (std::string data : vec) {
+			std::cout << data << " , ";
+		}
+		std::cout << std::endl;
+	}
+	return 0;
+}
+
+#endif
+
+
+#if 1
+
+#include <iostream>
+#include <map>
+#include <unordered_map>
+#include <algorithm>
+
+using namespace std;
+
+
+struct Key
+{
+    int m_value;
+public:
+    explicit Key(int _v) : m_value(_v) {}
+    bool operator<(const Key& src)const
+    {
+        return (this->m_value < src.m_value);
+    }
+
+//    bool operator==(const Key& l, const Key& r) const
+//		{
+//    	return (l.m_value == r.m_value);
+//		}
+
+    bool operator==(const Key& o) const
+		{
+    	return (this->m_value == o.m_value);
+		}
+
+    std::size_t operator()(const Key& k) const
+    {
+      using std::size_t;
+      using std::hash;
+      using std::string;
+
+//      return ((hash<string>()(k.first)
+//               ^ (hash<string>()(k.second) << 1)) >> 1)
+//               ^ (hash<int>()(k.third) << 1);
+      return (hash<int>()(k.m_value) << 1);
+    }
+
+};
+
+namespace std
+{
+//	template<>
+//	struct hash<std::string>
+//	{
+//		size_t operator()(const std::string& s) const
+//		{
+//			size_t res = 17;
+//			res = res*31 + hash<std::string>()(s);
+//			return res;
+//		}
+//	};
+
+    template <>
+    struct hash<Key>
+    {
+        size_t operator()( const Key& k ) const
+        {
+            // Compute individual hash values for first, second and third
+            // http://stackoverflow.com/a/1646913/126995
+            size_t res = 17;
+//            res = res * 31 + hash<string>()( k.first );
+//            res = res * 31 + hash<string>()( k.second );
+            res = res * 31 + hash<int>()( k.m_value );
+            return res;
+        }
+    };
+}
+
+int main()
+{
+    Key key1(1);
+    Key key2(2);
+    map<Key,int> mymap;
+    mymap.insert(pair<Key,int>(key1,100));
+    mymap.insert(pair<Key,int>(key2,200));
+    map<Key,int>::iterator iter=mymap.begin();
+    for(;iter!=mymap.end();++iter)
+    {
+        cout<<iter->second<<endl;
+    }
+
+    unordered_map<Key, int> m2;
+    m2.insert(pair<Key, int>(Key(1), 300));
+
+    unordered_map<std::string, Key> m3;
+    m3.insert(make_pair<std::string, Key>("222", Key(2)));
+
+    m3.insert({{"333", Key(3)}, {"444", Key(4)}});
+    std::for_each(m3.cbegin(), m3.cend(), [&](const std::pair<std::string, Key>& o) {
+    	std::cout << "{" << o.first << ", " << o.second.m_value << "}" << std::endl;
+    });
+
+    system("pause");
 }
 
 #endif
