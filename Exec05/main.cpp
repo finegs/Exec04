@@ -99,5 +99,35 @@ int main ()
 
   for (auto& th : threads) th.join();
 
+  int width,height;
+
+  width = 30;
+  height = 20;
+
+  std::string **vvs;
+  vvs = new std::string*[width];
+  for (int i = 0; i < width; ++i) {
+	vvs[i] = new std::string[height];
+  }
+
+  for (int i = 0; i < width; ++i) {
+	delete[] vvs[i];
+  }
+  delete[] vvs;
+  vvs = nullptr;
+
+  char** ccs;
+  ccs = new char*[height];
+  for (int i = 0; i < height; ++i) {
+	ccs[i] = new char[width];
+  }
+
+  for (int i = 0; i < height; ++i) {
+	delete[] ccs;
+  }
+
+  delete[] ccs;
+  ccs = nullptr;
+
   return EXIT_SUCCESS;
 }
