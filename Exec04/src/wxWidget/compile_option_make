@@ -1,0 +1,115 @@
+g++ 
+	-c 
+	-o gcc_mswud\bombs_bombs.o 
+	-g 
+	-O0 
+	-mthreads  
+	-DHAVE_W32API_H 
+	-D__WXMSW__       
+	-D_UNICODE 
+	-I.\..\..\lib\gcc_lib\mswud 
+	-I.\..\..\include  
+	-W 
+	-Wall 
+	-I.  
+	-I.\..\..\samples 
+	-DNOPCH   
+	-Wno-ctor-dtor-privacy   
+	-MTgcc_mswud\bombs_bombs.o 
+	-MFgcc_mswud\bombs_bombs.o.d 
+	-MD 
+	-MP bombs.cpp
+		
+g++ 
+	-c 
+	-o gcc_mswud\bombs_bombs1.o 
+	-g 
+	-O0 
+	-mthreads  
+	-DHAVE_W32API_H 
+	-D__WXMSW__       
+	-D_UNICODE 
+	-I.\..\..\lib\gcc_lib\mswud 
+	-I.\..\..\include  
+	-W 
+	-Wall 
+	-I.  
+	-I.\..\..\samples 
+	-DNOPCH   
+	-Wno-ctor-dtor-privacy   
+	-MTgcc_mswud\bombs_bombs1.o 
+	-MFgcc_mswud\bombs_bombs1.o.d 
+	-MD 
+	-MP bombs1.cpp
+	
+g++ 
+	-c 
+	-o gcc_mswud\bombs_game.o 
+	-g 
+	-O0 
+	-mthreads  
+	-DHAVE_W32API_H 
+	-D__WXMSW__       
+	-D_UNICODE 
+	-I.\..\..\lib\gcc_lib\mswud 
+	-I.\..\..\include  
+	-W 
+	-Wall 
+	-I.  
+	-I.\..\..\samples 
+	-DNOPCH   
+	-Wno-ctor-dtor-privacy   
+	-MTgcc_mswud\bombs_game.o 
+	-MFgcc_mswud\bombs_game.o.d 
+	-MD -MP game.cpp
+	
+windres 
+	--use-temp-file 
+	-ibombs.rc 
+	-ogcc_mswud\bombs_bombs_rc.o    
+	--define __WXMSW__       
+	--define _UNICODE 
+	--include-dir .\..\..\lib\gcc_lib\mswud 
+	--include-dir ./../../include  
+	--include-dir .  
+	--include-dir ./../../samples 
+	--define NOPCH
+g++ 
+	-o gcc_mswud\bombs.exe 
+		gcc_mswud\bombs_bombs.o 
+		gcc_mswud\bombs_bombs1.o 
+		gcc_mswud\bombs_game.o 
+		gcc_mswud\bombs_bombs_rc.o  
+	-g 
+	-mthreads 
+	-L.\..\..\lib\gcc_lib 
+	-Wl,--subsystem,windows 
+	-mwindows    
+	-lwxmsw31ud_core  
+	-lwxbase31ud    
+	-lwxtiffd 
+	-lwxjpegd 
+	-lwxpngd   
+	-lwxzlibd 
+	-lwxregexud 
+	-lwxexpatd   
+	-lkernel32 
+	-luser32 
+	-lgdi32 
+	-lcomdlg32 
+	
+	-lwinspool 
+	-lwinmm 
+	-lshell32 
+	-lshlwapi 
+	-lcomctl32 
+	-lole32 
+	-loleaut32 
+	-luuid 
+	-lrpcrt4 
+	-ladvapi32 
+	-lversion 
+	-lwsock32 
+	-lwininet 
+	-loleacc 
+	-luxtheme

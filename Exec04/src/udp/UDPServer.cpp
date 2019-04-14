@@ -19,16 +19,26 @@ unordered_map<string, string> envMap;
 //Prototypes
 int startWinsock(void);
 
-int main()
+int main(int argc, char* argv[])
 {
   long rc;
-  SOCKET s;
-  char buf[256];
-  char buf2[300];
-  char bufpermanent[100] = "Hello";
+  SOCKET sock;
+  int bindPort;
+  int bufLen = 1024;
+  char rcvBuf[bufLen];
+  char sndBuf[bufLen];
+//  char bufpermanent[bufLen] = "Hello";
   SOCKADDR_IN addr;
   SOCKADDR_IN remoteAddr;
   int         remoteAddrLen=sizeof(SOCKADDR_IN);
+
+  if(argc != 2)
+  {
+	  printf("Usage : US [Bind Port No]\n");
+	  return EXIT_FAILURE;
+  }
+
+  bindPort = atoi(argv[1]);
 
   rc=startWinsock();
   if(rc!=0)
@@ -42,12 +52,12 @@ int main()
   }
 
   //UDP Socket erstellen
-  s=socket(AF_INET,SOCK_DGRAM,0);
+  sock=socket(AF_INET,SOCK_DGRAM,0);
 
-  if(s==INVALID_SOCKET)
+  if(sock == INVALID_SOCKET)
   {
     printf("Error: Socket could not be created, error code: %d\n",WSAGetLastError());
-    return 1;
+    return EXIT_FAILURE;
   }
   else
   {
@@ -55,9 +65,9 @@ int main()
   }
 
   addr.sin_family=AF_INET;
-  addr.sin_port=htons(1234);
+  addr.sin_port=htons(bindPort);
   addr.sin_addr.s_addr=ADDR_ANY;
-  rc=bind(s,(SOCKADDR*)&addr,sizeof(SOCKADDR_IN));
+  rc=bind(sock,(SOCKADDR*)&addr, remoteAddrLen);
 
   if(rc==SOCKET_ERROR)
   {
@@ -66,35 +76,38 @@ int main()
   }
   else
   {
-    printf("Socket at Port 1234\n");
+    printf("Binding Socket at Port : %d\n", bindPort);
   }
 
   while(1)
   {
-    /*rc=recvfrom(s,buf,256,0,(SOCKADDR*)&remoteAddr,&remoteAddrLen);
+	memset(rcvBuf, '\0', bufLen); // init rcvBuf
+	memset(sndBuf, '\0', bufLen); // init sndBuf
+
+    rc=recvfrom(sock,rcvBuf, bufLen,0,(SOCKADDR*)&remoteAddr,&remoteAddrLen);
     if(rc==SOCKET_ERROR)
     {
       printf("Error: recvfrom, error code: %d\n",WSAGetLastError());
-      return 1;
+      return EXIT_FAILURE;
     }
     else
     {
-      printf("%d Bytes received!\n", rc);
-      buf[rc]='\0';
+      rcvBuf[rc] = '\0';
+      printf("[R] : [%ld] : %s\n", rc, rcvBuf);
     }
-    printf("Received data: %s\n",buf);*/
 
     //Answer
     //sprintf(buf2,"Hello %s",buf);
-    rc=sendto(s,buf2,strlen(buf2),0,(SOCKADDR*)&remoteAddr,remoteAddrLen);
+    memcpy(sndBuf, rcvBuf, rc);
+    rc=sendto(sock,sndBuf,strlen(sndBuf),0,(SOCKADDR*)&remoteAddr,remoteAddrLen);
     if(rc==SOCKET_ERROR)
     {
       printf("Error: sendto, error code: %d\n",WSAGetLastError());
-      return 1;
+      return EXIT_FAILURE;
     }
     else
     {
-      printf("%ld Bytes send!\n", rc);
+      printf("[S] : [%ld] : %s\n", rc, sndBuf);
     }
   }
   return 0;

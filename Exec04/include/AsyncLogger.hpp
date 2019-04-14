@@ -59,7 +59,7 @@ enum AsyncLogLevel {
 #define AsyncLogLevel_To_Str(Enum) std::string(#Enum).c_str()
 
 template<typename ... Args>
-std::string& ALOGGER_DLL sformat(const std::string& format, Args ... args);
+std::string ALOGGER_DLL sformat(const std::string& format, Args ... args);
 
 void ALOGGER_DLL mformat(const char* format);
 
@@ -84,9 +84,9 @@ private:
 class AsyncLogger {
 public:
 	static int init(int argc, char* argv[]);
-	static AsyncLogger& getLogger(const std::string& loggerName);
-	static bool registerLogger(const std::string& loggerName, AsyncLogger& logger);
-	static AsyncLogger& unregisterLogger(const std::string& loggerName);
+	static asynclogger::AsyncLogger& getLogger(const std::string& loggerName);
+	static bool registerLogger(const std::string& loggerName, asynclogger::AsyncLogger logger);
+	static asynclogger::AsyncLogger& unregisterLogger(const std::string& loggerName);
 public:
 	AsyncLogger();
 
@@ -169,8 +169,6 @@ private:
 	AsyncLogLevel level;
 
 	static std::unordered_map<std::string, asynclogger::AsyncLogger> loggers;
-
-
 
 	void subTask();
 	void log(const asynclogger::AsyncLogLevel& level, const std::string& str);

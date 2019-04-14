@@ -10,7 +10,7 @@ using namespace asynclogger;
 
 
 template<typename ... Args>
-std::string& ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
+std::string ALOGGER_DLL asynclogger::sformat(const std::string& format, Args ... args) {
 	size_t size = snprintf(nullptr, 0, format, args ...);
 	unique_ptr<char[]> buf(new char[size]);
 	snprintf(buf.get(), size, format, args ...);
@@ -55,11 +55,11 @@ AsyncLogger& AsyncLogger::getLogger(const std::string& loggerName)
 	AsyncLogger& logger = loggers[loggerName];
 	return logger;
 }
-bool AsyncLogger::registerLogger(const std::string& loggerName, AsyncLogger& logger)
+bool AsyncLogger::registerLogger(const std::string& loggerName, asynclogger::AsyncLogger logger)
 {
 	if(&loggers[loggerName]) return false;
 
-	loggers.insert(std::pair<std::string, AsyncLogger>(std::string(loggerName), logger));
+	loggers.insert({std::string(loggerName), logger});
 	return true;
 }
 

@@ -1,3 +1,5 @@
+/.project
+/.cproject
 /Debug/
 /Release/
 /alogger/
@@ -25,3 +27,5 @@
 /AppSMI/
 /AppSMI_Prod/
 /AppSMI_Consumer/
+/UDPServer/
+/wwDataView/
