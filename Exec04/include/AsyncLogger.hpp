@@ -23,7 +23,7 @@
 #include <mutex>
 #include <unistd.h>
 #include <mutex>
-
+#include <unordered_map>
 
 #include <condition_variable>
 
@@ -32,10 +32,16 @@
 #include <queue>
 #include <exception>
 
+#ifdef _WIN32
 #ifdef BUILDING_DLL
 #define ALOGGER_DLL __declspec(dllexport)
-#else
+#elif USING_DLL
 #define ALOGGER_DLL __declspec(dllimport)
+#else
+#define ALOGGER_DLL
+#endif
+#else
+#define ALOGGER_DLL
 #endif
 
 
@@ -49,6 +55,8 @@ static std::string MSG_DBG("[D]");
 static std::string MSG_ERR("[E]");
 static std::string MSG_FATAL("[F]");
 
+static std::string _ASYNC_ROOT_LOGGER("Root");
+
 enum AsyncLogLevel {
 	L_DEBUG = 0, L_INFO, L_ERROR, L_FATAL
 };
@@ -58,21 +66,18 @@ enum AsyncLogLevel {
 template<typename ... Args>
 std::string ALOGGER_DLL sformat(const std::string& format, Args ... args);
 
-class AsyncLogMsg {
-public:
-	AsyncLogMsg(const char* msg);
-	AsyncLogMsg(const AsyncLogLevel& level, const char* msg);
-	~AsyncLogMsg();
-	char* getMsg() const {
-		return msg;
-	}
-	TimePoint getTimePoint() const {
-		return createTimePoint;
-	}
+void ALOGGER_DLL mformat(const char* format);
 
-	AsyncLogLevel getLevel() const {
-		return level;
-	}
+template<typename T, typename... Targs>
+void ALOGGER_DLL mprintf(const char* format, T value, Targs... Fargs);
+
+class ALOGGER_DLL AsyncLogMsg {
+public:
+	AsyncLogMsg( const char* _msg, const AsyncLogLevel& level = AsyncLogLevel::L_INFO);
+	~AsyncLogMsg();
+	char* getMsg() const { return msg; }
+	TimePoint getTimePoint() const { return createTimePoint; }
+	AsyncLogLevel getLevel() const { return level; }
 
 private:
 	TimePoint createTimePoint;
@@ -81,14 +86,51 @@ private:
 
 };
 
-class AsyncLogger {
+class ALOGGER_DLL AsyncLogger {
+public:
+	static int init(int argc, char* argv[]);
+	static AsyncLogger& getLogger(const std::string& loggerName);
+	static bool registerLogger(const std::string& loggerName, AsyncLogger& logger);
+	static AsyncLogger& unregisterLogger(const std::string& loggerName);
 public:
 	AsyncLogger();
+
+	explicit
+	AsyncLogger(const std::string& name)
+				: name(name),
+				  isStart(true),
+				  isPause(true),
+				  logWriter(nullptr),
+				  ts(nullptr),
+				  out(nullptr),
+				  level(asynclogger::AsyncLogLevel::L_INFO) {}
+	AsyncLogger(const AsyncLogger& logger)
+				: name(logger.name),
+				  isStart(logger.isStart),
+				  isPause(logger.isPause),
+				  logWriter(logger.logWriter),
+				  ts(nullptr),
+				  out(nullptr),
+				  level(logger.level) {}
+
+	AsyncLogger(AsyncLogger&& logger)
+				: name(std::move(logger.name)),
+				  msgQueue(std::move(logger.msgQueue)),
+				  isStart(logger.isStart),
+				  isPause(logger.isPause),
+				  logWriter(std::move(logWriter)),
+				  ts(std::move(logger.ts)),
+				  out(std::move(logger.out)),
+				  level(logger.level)
+	{
+		logger.logWriter = nullptr;
+		logger.out = nullptr;
+	}
+
 	~AsyncLogger();
 
-	const char* getTS();
-	void getTS(const TimePoint& tp, char* ts);
-	AsyncLogLevel getLevel() const {
+
+	const AsyncLogLevel& getLevel() const {
 		return this->level;
 	}
 	void setLevel(const AsyncLogLevel& level) {
@@ -112,8 +154,13 @@ public:
 	}
 	void join();
 
+	const std::string& getName() const { return name; }
+	const char* getTS();
+	void getTS(const TimePoint& tp, char* ts);
+
 private:
 	//	std::priority_queue<asynclogger::AsyncLoggerMessage*> que;
+	const std::string name;
 	std::queue<asynclogger::AsyncLogMsg*> msgQueue;
 	std::mutex mtx;
 	std::condition_variable cv;
@@ -122,9 +169,12 @@ private:
 	bool isPause;
 	std::thread* logWriter;
 	char* ts;
-	std::ostream out;
+	std::ostream* out;
 	std::mutex outMtx;
 	AsyncLogLevel level;
+
+	static std::unordered_map<std::string, asynclogger::AsyncLogger> loggers;
+
 
 	void subTask();
 	void log(const asynclogger::AsyncLogLevel& level, const std::string& str);

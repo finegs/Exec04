@@ -1,6 +1,6 @@
 eclipse.preferences.version=1
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/PATH/delimiter=;
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/PATH/operation=replace
-environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/PATH/value=C\:\\MinGW-w64\\mingw64\\bin;C\:\\MinGW-w64\\mingw64\\msys64\\usr\\bin
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/WXWIDGETS_HOME/delimiter=;
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/WXWIDGETS_HOME/operation=append
+environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/WXWIDGETS_HOME/value=C\:\\Programs\\wxWidgets-3.1.2
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/append=true
 environment/project/cdt.managedbuild.config.gnu.mingw.exe.debug.1867003997/appendContributed=true
