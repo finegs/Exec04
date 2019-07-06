@@ -71,7 +71,7 @@ int main()
 
   while(1)
   {
-    /*rc=recvfrom(s,buf,256,0,(SOCKADDR*)&remoteAddr,&remoteAddrLen);
+    rc=recvfrom(s,buf,256,0,(SOCKADDR*)&remoteAddr,&remoteAddrLen);
     if(rc==SOCKET_ERROR)
     {
       printf("Error: recvfrom, error code: %d\n",WSAGetLastError());
@@ -82,7 +82,7 @@ int main()
       printf("%d Bytes received!\n", rc);
       buf[rc]='\0';
     }
-    printf("Received data: %s\n",buf);*/
+    printf("Received data: %s\n",buf);
 
     //Answer
     //sprintf(buf2,"Hello %s",buf);
